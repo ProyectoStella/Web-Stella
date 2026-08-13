@@ -1,0 +1,13 @@
+{
+    "estado": "En etapa de desarrollo y preparación",
+    "color": "🟡",
+    "descripcion": "El proyecto continúa en etapa de desarrollo y preparación. El lanzamiento todavía no se realizó y está previsto para octubre de 2026. Actualmente se están completando la adquisición de componentes, las pruebas físicas, la integración del sistema y la planificación de la misión.",
+    "progreso": 40,
+    "etapas": [
+        { "nombre": "Desarrollo", "completa": true },
+        { "nombre": "Pruebas", "completa": false },
+        { "nombre": "Lanzamiento", "completa": false },
+        { "nombre": "Recuperación", "completa": false },
+        { "nombre": "Análisis", "completa": false }
+    ]
+}

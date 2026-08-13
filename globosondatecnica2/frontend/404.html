@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Página no encontrada - Proyecto STELLA">
+<meta name="theme-color" content="#0a0a1a">
+<title>404 - Página no encontrada | STELLA</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/base/reset.css?v=8">
+<link rel="stylesheet" href="css/base/background.css?v=8">
+<link rel="stylesheet" href="css/components/navbar.css?v=8">
+<link rel="stylesheet" href="css/components/footer.css?v=8">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+.error-page {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.error-code {
+    font-size: 80px;
+    color: #4fc3f7;
+    text-shadow: 0 0 30px rgba(79, 195, 247, 0.4);
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.error-mensaje {
+    font-size: 16px;
+    color: #b3e5fc;
+    margin-bottom: 8px;
+}
+
+.error-desc {
+    font-size: 13px;
+    color: #90caf9;
+    max-width: 400px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.error-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+</style>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<main>
+    <section class="error-page">
+        <div class="error-code">404</div>
+        <p class="error-mensaje">Página no encontrada</p>
+        <p class="error-desc">La página que buscas no existe o ha sido movida. El espacio es enorme, pero este enlace no lleva a ninguna parte.</p>
+        <div class="error-buttons">
+            <a href="index.html" class="hero-btn">Volver al Inicio</a>
+            <a href="pages/proyecto.html" class="hero-btn">Ir a Proyecto</a>
+        </div>
+    </section>
+</main>
+
+<div id="footer"></div>
+
+<script src="js/utils/constants.js?v=8"></script>
+<script src="js/utils/helpers.js?v=8"></script>
+<script src="js/components/navbar.js?v=8"></script>
+<script src="js/components/footer.js?v=8"></script>
+</body>
+</html>

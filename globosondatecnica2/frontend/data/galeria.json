@@ -1,0 +1,126 @@
+[
+    {
+        "id": 1,
+        "titulo": "Feria de ciencias",
+        "categoria": "General",
+        "descripcion": "Participación del equipo STELLA en la feria de ciencias, con el stand del proyecto y demostraciones de los avances del globo estratosférico.",
+        "imagenes": [
+            {
+                "id": 1,
+                "imagen": "assets/images/galeria/Feria1.jpg",
+                "descripcion": "El stand del equipo presentando la misión STELLA al público.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 2,
+                "imagen": "assets/images/galeria/Feria2.jpg",
+                "descripcion": "Demostración en vivo de los prototipos ante los visitantes.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 3,
+                "imagen": "assets/images/galeria/Feria3.jpg",
+                "descripcion": "Integrantes del equipo explicando los avances del proyecto.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 4,
+                "imagen": "assets/images/galeria/Feria4.jpg",
+                "descripcion": "Material visual y pósters mostrados durante la exposición.",
+                "fecha": "2026-03-01"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "titulo": "Hardware y Electrónica",
+        "categoria": "Hardware",
+        "descripcion": "Ensamblaje y prueba de los componentes electrónicos en medios virtuales.",
+        "imagenes": [
+            {
+                "id": 5,
+                "imagen": "assets/images/galeria/hardware1.jpg",
+                "descripcion": "Ensamblaje de la placa electrónica principal y sus conexiones en un entorno virtual.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 6,
+                "imagen": "assets/images/galeria/hardware2.jpeg",
+                "descripcion": "Prueba de programación de los componentes electrónicos.",
+                "fecha": "2026-03-01"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "titulo": "Diseño y Construcción de Prototipos",
+        "categoria": "Desarrollo",
+        "descripcion": "Proceso de diseño y armado de los prototipos de la estructura de la misión.",
+        "imagenes": [
+            {
+                "id": 7,
+                "imagen": "assets/images/galeria/diseño1.jpg",
+                "descripcion": "Primer prototipo de la estructura preparado para su evaluación.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 8,
+                "imagen": "assets/images/galeria/diseño2.jpeg",
+                "descripcion": "Dibujado del plano interno del proyecto.",
+                "fecha": "2026-03-01"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "titulo": "Modelado 3D en Blender",
+        "categoria": "Blender",
+        "descripcion": "Modelado y renderizado 3D de las piezas y escenarios del proyecto con Blender.",
+        "imagenes": [
+            {
+                "id": 9,
+                "imagen": "assets/images/galeria/blender1.jpeg",
+                "descripcion": "Etapas iniciales del modelado 3D de la cápsula.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 10,
+                "imagen": "assets/images/galeria/blender2.jpeg",
+                "descripcion": "Vista renderizada de la pieza desde Blender.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 11,
+                "imagen": "assets/images/galeria/blender3.jpeg",
+                "descripcion": "Vista del modelo en Ultimaker Cura listo para imprimir.",
+                "fecha": "2026-03-01"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "titulo": "Impresión 3D",
+        "categoria": "Impresión 3D",
+        "descripcion": "Fabricación de las piezas del proyecto mediante impresión 3D.",
+        "imagenes": [
+            {
+                "id": 12,
+                "imagen": "assets/images/galeria/impresion1.jpeg",
+                "descripcion": "Primera impresión 3D de una pieza del proyecto.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 13,
+                "imagen": "assets/images/galeria/impresion2.jpeg",
+                "descripcion": "Pieza impresa lista para el ensamblaje del prototipo.",
+                "fecha": "2026-03-01"
+            },
+            {
+                "id": 14,
+                "imagen": "assets/images/galeria/impresion3.jpeg",
+                "descripcion": "Prototipo ensamblado.",
+                "fecha": "2026-03-01"
+            }
+        ]
+    }
+]

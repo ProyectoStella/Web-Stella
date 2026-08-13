@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "titulo": "El proyecto avanza hacia la etapa de pruebas",
+        "fecha": "12/08/2026",
+        "categoria": "Proyecto",
+        "descripcion": "El equipo de STELLA continúa completando la adquisición de componentes y se prepara para iniciar las pruebas físicas de la cápsula. El lanzamiento está previsto para octubre de 2026."
+    },
+    {
+        "id": 2,
+        "titulo": "Participación en la Feria de Ciencias",
+        "fecha": "15/07/2026",
+        "categoria": "Eventos",
+        "descripcion": "El equipo presentó la misión STELLA en la feria de ciencias de la escuela, con demostraciones de los prototipos y el modelado 3D de la cápsula."
+    },
+    {
+        "id": 3,
+        "titulo": "Nueva configuración técnica definida",
+        "fecha": "20/06/2026",
+        "categoria": "Tecnología",
+        "descripcion": "Se definió la configuración técnica final de la misión: Raspberry Pi 4, sensores GY-63 MS5611 y DS18B20, cámaras, telemetría LoRa y GPS NEO-M8N."
+    }
+]

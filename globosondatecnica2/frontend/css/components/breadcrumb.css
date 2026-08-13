@@ -1,0 +1,37 @@
+.breadcrumb {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 20px 0;
+    text-align: left;
+    font-size: 12px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.breadcrumb-link {
+    color: #90caf9;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb-link:hover {
+    color: #4fc3f7;
+}
+
+.breadcrumb-sep {
+    color: #4fc3f7;
+    margin: 0 8px;
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+.breadcrumb-actual {
+    color: #4fc3f7;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .breadcrumb {
+        padding: 16px 16px 0;
+        font-size: 11px;
+    }
+}

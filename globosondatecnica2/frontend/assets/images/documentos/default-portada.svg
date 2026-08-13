@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420">
+  <rect width="300" height="420" fill="#0f1629" rx="6"/>
+  <rect x="10" y="10" width="280" height="400" fill="none" stroke="#4fc3f7" stroke-width="0.5" rx="4" opacity="0.1"/>
+  <circle cx="150" cy="160" r="50" fill="none" stroke="#4fc3f7" stroke-width="1.5" opacity="0.08"/>
+  <text x="150" y="168" text-anchor="middle" font-family="Orbitron, monospace" font-size="36" fill="#4fc3f7" opacity="0.12">DOC</text>
+  <rect x="60" y="340" width="180" height="2" fill="#4fc3f7" opacity="0.04"/>
+</svg>

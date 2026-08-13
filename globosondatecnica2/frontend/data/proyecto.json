@@ -1,0 +1,289 @@
+{
+    "home_resumen": [
+        "STELLA es un proyecto educativo de globo estratosférico de la EEST N°2 \"Luciano Fortabat\" de Olavarría, cuyo objetivo es alcanzar aproximadamente 35 km de altura, registrar imágenes y recopilar datos ambientales durante el vuelo.",
+        "A través de esta iniciativa, los estudiantes aplican conocimientos reales de electrónica, programación, comunicaciones, diseño 3D, física, meteorología, logística e investigación en un proyecto de ingeniería completo."
+    ],
+    "sections": [
+        {
+            "id": "que-es",
+            "titulo": "¿Qué es STELLA?",
+            "tipo": "texto",
+            "contenido": [
+                "STELLA es un proyecto educativo de globo estratosférico desarrollado por estudiantes de la Tecnicatura en Informática de la EEST N°2 \"Luciano Fortabat\", ubicada en la ciudad de Olavarría, provincia de Buenos Aires.",
+                "El proyecto comenzó durante el año 2026, aproximadamente en el mes de marzo, por iniciativa del profesor Alejandro Wagner. Su objetivo es diseñar, construir y lanzar una cápsula estratosférica capaz de alcanzar aproximadamente 35 km de altura, registrar imágenes y recopilar datos ambientales durante el vuelo.",
+                "El nombre STELLA representa el proyecto de globo estratosférico de la institución, que integra conocimientos de electrónica, programación, comunicaciones y diseño en un único proyecto integrador. Su lema es \"Más Allá del Cielo Comienza Nuestra Misión\"."
+            ]
+        },
+        {
+            "id": "por-que-nacio",
+            "titulo": "¿Por qué nació?",
+            "tipo": "texto",
+            "contenido": [
+                "El proyecto busca desarrollar una propuesta innovadora dentro del ámbito educativo argentino, donde los estudiantes puedan aplicar conocimientos técnicos en un entorno real y desafiante.",
+                "STELLA pretende dar mayor visibilidad a la escuela mediante un proyecto tecnológico de gran complejidad, demostrando las capacidades de sus estudiantes y docentes y fortaleciendo el vínculo entre la institución educativa y el sector tecnológico.",
+                "Además, busca inspirar a otros estudiantes a participar en proyectos científicos y tecnológicos, fomentando vocaciones en áreas de ciencia, tecnología, ingeniería y matemáticas."
+            ]
+        },
+        {
+            "id": "objetivo",
+            "titulo": "Nuestro objetivo",
+            "tipo": "texto",
+            "contenido": [
+                "El objetivo principal es desarrollar y preparar un globo estratosférico educativo capaz de alcanzar aproximadamente 35 km de altura, registrar imágenes y recopilar datos ambientales durante el ascenso y el descenso.",
+                "El proyecto integra conocimientos de electrónica, programación, comunicaciones, diseño 3D, física, meteorología, logística, investigación y trabajo en equipo.",
+                "También tiene un objetivo educativo y de divulgación científica: mostrar el trabajo de los estudiantes y fomentar vocaciones en áreas de ciencia y tecnología."
+            ]
+        },
+        {
+            "id": "funcionamiento",
+            "titulo": "¿Cómo funciona un globo estratosférico?",
+            "tipo": "pasos",
+            "pasos": [
+                {
+                    "titulo": "Inflado con helio",
+                    "descripcion": "Los globos de látex se inflan con helio en el lugar de lanzamiento. El gas proporciona la sustentación necesaria para elevar la cápsula."
+                },
+                {
+                    "titulo": "Ascenso",
+                    "descripcion": "La cápsula asciende a una velocidad estimada de 5,5 m/s. Durante el ascenso, los sensores registran temperatura y presión en tiempo real."
+                },
+                {
+                    "titulo": "Llegada a la estratósfera",
+                    "descripcion": "Al alcanzar aproximadamente 35 km de altitud, la cápsula se encuentra en la estratósfera. Las cámaras capturan imágenes de la curvatura terrestre y el cielo oscuro."
+                },
+                {
+                    "titulo": "Expansión y explosión del globo",
+                    "descripcion": "Al ascender, la presión atmosférica disminuye y el helio se expande hasta que los globos alcanzan su límite elástico y se produce la explosión de forma controlada."
+                },
+                {
+                    "titulo": "Descenso con paracaídas",
+                    "descripcion": "El paracaídas de nylon se despliega automáticamente para frenar la caída de la cápsula, con una velocidad de descenso estimada de 5,8 m/s, asegurando un descenso seguro."
+                },
+                {
+                    "titulo": "Recuperación",
+                    "descripcion": "El GPS NEO-M8N registra la posición de la cápsula, lo que permite al equipo de tierra rastrear y recuperar la cápsula una vez que ha aterrizado."
+                }
+            ]
+        },
+        {
+            "id": "componentes",
+            "titulo": "Componentes principales",
+            "tipo": "cards",
+            "items": [
+                {
+                    "nombre": "Globo meteorológico",
+                    "descripcion": "4 globos de látex de 48 pulgadas que se inflan con helio para elevar la cápsula hasta la estratósfera.",
+                    "icono": "🎈"
+                },
+                {
+                    "nombre": "Cápsula",
+                    "descripcion": "Estructura impresa en 3D en PETG con aislamiento interior de poliestireno/telgopor. Protege la electrónica de las bajas temperaturas de la estratósfera y del impacto del aterrizaje.",
+                    "icono": "🛰️"
+                },
+                {
+                    "nombre": "Paracaídas",
+                    "descripcion": "Paracaídas de nylon que frena el descenso de la cápsula tras la expansión y explosión de los globos.",
+                    "icono": "🪂"
+                },
+                {
+                    "nombre": "Sistema de recuperación",
+                    "descripcion": "El GPS NEO-M8N registra la posición de la cápsula para permitir su seguimiento y recuperación después del aterrizaje.",
+                    "icono": "📍"
+                }
+            ]
+        },
+        {
+            "id": "tecnologias",
+            "titulo": "Tecnologías utilizadas",
+            "tipo": "cards",
+            "items": [
+                {
+                    "nombre": "Raspberry Pi 4",
+                    "descripcion": "Computadora de placa reducida que actúa como cerebro principal de la cápsula: procesa los datos de los sensores y gestiona las comunicaciones."
+                },
+                {
+                    "nombre": "GY-63 MS5611",
+                    "descripcion": "Sensor barométrico de alta precisión que mide presión y temperatura para determinar la altitud."
+                },
+                {
+                    "nombre": "DS18B20",
+                    "descripcion": "Sensor digital de temperatura resistente a condiciones extremas."
+                },
+                {
+                    "nombre": "Cámara de transmisión Caddx Ratel 2",
+                    "descripcion": "Cámara FPV que transmite video en vivo durante la misión."
+                },
+                {
+                    "nombre": "Transmisor de video RUSH TANK II V2",
+                    "descripcion": "Transmisor de video de 5,8 GHz que envía la señal de la cámara hacia la estación en tierra."
+                },
+                {
+                    "nombre": "Receptor de video Eachine ROTG02",
+                    "descripcion": "Receptor de video utilizado en la estación en tierra para recibir la transmisión FPV."
+                },
+                {
+                    "nombre": "Cámara de grabación IMX708",
+                    "descripcion": "Cámara encargada de grabar imágenes de alta calidad durante el vuelo."
+                },
+                {
+                    "nombre": "Telemetría LoRa LA66",
+                    "descripcion": "2 módulos LoRa a 915 MHz que transmiten los datos de telemetría y la ubicación desde la estratósfera."
+                },
+                {
+                    "nombre": "GPS NEO-M8N",
+                    "descripcion": "Módulo de geolocalización que registra la posición de la cápsula durante la misión."
+                },
+                {
+                    "nombre": "Almacenamiento microSD SanDisk High Endurance",
+                    "descripcion": "Tarjeta de 128 GB que guarda los datos localmente para evitar pérdidas si la comunicación se interrumpe."
+                },
+                {
+                    "nombre": "Alimentación",
+                    "descripcion": "10 baterías Energizer Ultimate Lithium que proveen energía a todos los sistemas de la cápsula."
+                },
+                {
+                    "nombre": "Regulación StepDown XL4015",
+                    "descripcion": "Regulador de voltaje que estabiliza la alimentación de los componentes."
+                },
+                {
+                    "nombre": "Blender",
+                    "descripcion": "Software de modelado 3D utilizado para diseñar la cápsula y simular su comportamiento antes de la fabricación."
+                },
+                {
+                    "nombre": "Impresión 3D",
+                    "descripcion": "Tecnología de fabricación aditiva utilizada para producir las piezas estructurales de la cápsula en PETG."
+                }
+            ]
+        },
+        {
+            "id": "comunicaciones",
+            "titulo": "Comunicaciones",
+            "tipo": "cards",
+            "items": [
+                {
+                    "nombre": "Video FPV",
+                    "descripcion": "La cámara Caddx Ratel 2 transmite video en vivo mediante FPV a 5,8 GHz, usando el transmisor RUSH TANK II V2 y el receptor Eachine ROTG02 en tierra.",
+                    "icono": "📹"
+                },
+                {
+                    "nombre": "Telemetría",
+                    "descripcion": "Los datos y la ubicación se transmiten mediante 2 módulos LoRa LA66 a 915 MHz.",
+                    "icono": "📡"
+                },
+                {
+                    "nombre": "GPS",
+                    "descripcion": "El módulo NEO-M8N registra la posición de la cápsula para el seguimiento y la recuperación.",
+                    "icono": "🛰️"
+                },
+                {
+                    "nombre": "Almacenamiento local",
+                    "descripcion": "Los datos también se guardan en la microSD de 128 GB para evitar perder información si la comunicación se interrumpe durante el vuelo.",
+                    "icono": "💾"
+                }
+            ]
+        },
+        {
+            "id": "trayectoria",
+            "titulo": "Trayectoria estimada",
+            "tipo": "texto",
+            "contenido": [
+                "La trayectoria de la misión se analiza mediante simulaciones de vuelo desarrolladas por el equipo. Los parámetros estimados son: altura de estallido de 35.000 m, velocidad de ascenso de 5,5 m/s, velocidad de descenso de 5,8 m/s, tiempo total estimado de 3 h 26 min 38 s y alcance horizontal estimado de 151,6 km.",
+                "Según el escenario de viento, la zona estimada de caída varía: con viento bajo, en la zona cercana a Tapalqué; con viento medio, en la zona entre Azul y Rauch; y con viento alto, en la zona cercana a Ayacucho. Estas zonas son estimaciones de trayectoria y caída, no la ubicación real de aterrizaje."
+            ]
+        },
+        {
+            "id": "recuperacion",
+            "titulo": "Recuperación",
+            "tipo": "texto",
+            "contenido": [
+                "El sistema de recuperación contempla utilizar el GPS NEO-M8N para registrar la posición de la cápsula. Después del aterrizaje se realizará la recuperación siguiendo la posición obtenida.",
+                "Para el seguimiento y la recuperación se contempla utilizar la casa rodante del profesor a cargo. La recuperación todavía no se realizó y forma parte de las etapas pendientes de la misión."
+            ]
+        },
+        {
+            "id": "como-trabajamos",
+            "titulo": "¿Cómo trabajamos?",
+            "tipo": "areas",
+            "intro": "El equipo se organiza en áreas interconectadas que trabajan de forma coordinada:",
+            "areas": [
+                {
+                    "nombre": "Jefatura del Proyecto",
+                    "icono": "👥",
+                    "descripcion": "Juan Pablo Koziel y Facundo Nahuel Terenzano coordinan las actividades del equipo, gestionan los recursos y establecen los objetivos y cronogramas del proyecto."
+                },
+                {
+                    "nombre": "Coordinación General del Informe",
+                    "icono": "📋",
+                    "descripcion": "Unifica el contenido del informe del proyecto y coordina la documentación y los avances de todas las áreas."
+                },
+                {
+                    "nombre": "Hardware y Electrónica",
+                    "icono": "🔧",
+                    "descripcion": "Desarrolla el sistema electrónico de la cápsula: sensores, GPS, cámaras, transmisión de video, telemetría y alimentación."
+                },
+                {
+                    "nombre": "Programación y Datos",
+                    "icono": "🖥️",
+                    "descripcion": "Desarrolla el software de a bordo, el simulador de vuelo, el procesamiento de datos y las herramientas de visualización."
+                },
+                {
+                    "nombre": "Investigación y Logística",
+                    "icono": "📡",
+                    "descripcion": "Realiza el análisis de trayectoria, la gestión de permisos, la planificación de la misión y las tareas de recuperación."
+                },
+                {
+                    "nombre": "Diseño y Comunicación",
+                    "icono": "🎨",
+                    "descripcion": "Se encarga del modelado 3D de la cápsula, la fabricación de las piezas y la difusión del proyecto."
+                }
+            ]
+        },
+        {
+            "id": "programacion",
+            "titulo": "Programación y datos",
+            "tipo": "texto",
+            "contenido": [
+                "El proyecto desarrolló herramientas de programación para la simulación de vuelo, el procesamiento de datos, el seguimiento de posición y la visualización de información.",
+                "Se desarrolló un simulador de vuelo en Python que analiza el comportamiento de la misión mediante parámetros físicos y valores simulados."
+            ]
+        },
+        {
+            "id": "presupuesto",
+            "titulo": "Presupuesto estimado",
+            "tipo": "texto",
+            "contenido": [
+                "El presupuesto estimado del proyecto es de $1.416.404 ARS sin envíos y $1.682.086 ARS con envíos. El proyecto está buscando apoyo económico para financiar componentes, materiales, pruebas y lanzamiento."
+            ]
+        },
+        {
+            "id": "estado-avances",
+            "titulo": "Estado y avances",
+            "tipo": "texto",
+            "contenido": [
+                "El proyecto continúa en etapa de desarrollo y preparación. El lanzamiento todavía no se realizó y está previsto para octubre de 2026.",
+                "Avances ya realizados: investigación inicial, diseño y modelado 3D, desarrollo de la cápsula, simulaciones de vuelo, análisis de trayectoria, análisis de riesgos, desarrollo del sistema de comunicaciones, desarrollo de herramientas de programación, definición de la configuración técnica, unificación de los equipos y planificación de la misión.",
+                "Etapas pendientes: adquisición de componentes, pruebas físicas, integración definitiva, pruebas de comunicación, preparación del lanzamiento, lanzamiento, seguimiento, recuperación y análisis de los datos del vuelo."
+            ]
+        },
+        {
+            "id": "proximos-pasos",
+            "titulo": "Próximos pasos",
+            "tipo": "texto",
+            "contenido": [
+                "Las próximas etapas del proyecto son la adquisición de los componentes, las pruebas físicas y la integración definitiva de la cápsula.",
+                "Luego se realizarán las pruebas de comunicación y la preparación del lanzamiento, previsto para octubre de 2026. Tras el lanzamiento, el equipo realizará el seguimiento, la recuperación de la cápsula y el análisis de los datos recopilados."
+            ]
+        }
+    ],
+    "infografia": {
+        "titulo": "Infografía de la misión",
+        "pasos": [
+            { "icono": "🗺️", "nombre": "Despegue" },
+            { "icono": "⬆️", "nombre": "Ascenso" },
+            { "icono": "🌍", "nombre": "Estratósfera (~35 km)" },
+            { "icono": "💥", "nombre": "Explosión del globo" },
+            { "icono": "🪂", "nombre": "Descenso con paracaídas" },
+            { "icono": "📍", "nombre": "Recuperación" }
+        ]
+    }
+}

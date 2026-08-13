@@ -1,0 +1,554 @@
+/* ===================== ESTADÍSTICAS ===================== */
+.doc-estadisticas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 35px;
+}
+
+.doc-stat-item {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(79, 195, 247, 0.12);
+    border-radius: 10px;
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 130px;
+    transition: 0.3s;
+}
+
+.doc-stat-item:hover {
+    border-color: rgba(79, 195, 247, 0.3);
+    transform: translateY(-3px);
+}
+
+.doc-stat-num {
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    color: #4fc3f7;
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1.2;
+}
+
+.doc-stat-label {
+    display: block;
+    font-size: 11px;
+    color: #90caf9;
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* ===================== FILTROS ===================== */
+.doc-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.doc-filtro-btn {
+    background: transparent;
+    border: 1.5px solid rgba(79, 195, 247, 0.3);
+    border-radius: 20px;
+    padding: 7px 16px;
+    color: #90caf9;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.doc-filtro-btn:hover {
+    border-color: #4fc3f7;
+    color: #e0f7ff;
+}
+
+.doc-filtro-btn.activo {
+    background: rgba(79, 195, 247, 0.18);
+    border-color: #4fc3f7;
+    color: #4fc3f7;
+    box-shadow: 0 0 10px rgba(79, 195, 247, 0.25);
+}
+
+/* ===================== BÚSQUEDA + ORDEN ===================== */
+.doc-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.doc-search-wrapper {
+    flex: 1;
+    min-width: 220px;
+    max-width: 480px;
+}
+
+.doc-search {
+    width: 100%;
+    padding: 11px 16px;
+    border: 1.5px solid rgba(79, 195, 247, 0.3);
+    border-radius: 8px;
+    background: rgba(17, 24, 39, 0.7);
+    color: #e0f7ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.doc-search:focus {
+    border-color: #4fc3f7;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.3);
+}
+
+.doc-search::placeholder {
+    color: rgba(144, 202, 249, 0.4);
+}
+
+.doc-orden-select {
+    padding: 11px 16px;
+    border: 1.5px solid rgba(79, 195, 247, 0.3);
+    border-radius: 8px;
+    background: rgba(17, 24, 39, 0.7);
+    color: #90caf9;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.doc-orden-select:hover,
+.doc-orden-select:focus {
+    border-color: #4fc3f7;
+}
+
+.doc-orden-select option {
+    background: #0f1629;
+    color: #e0f7ff;
+}
+
+/* ===================== DESTACADOS ===================== */
+.doc-destacados {
+    margin-bottom: 40px;
+}
+
+.doc-destacados h3 {
+    font-size: 16px;
+    color: #4fc3f7;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.doc-destacado-card {
+    display: flex;
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.15);
+    transition: 0.35s;
+    margin-bottom: 16px;
+}
+
+.doc-destacado-card:hover {
+    box-shadow: 0 0 30px rgba(79, 195, 247, 0.3);
+    transform: translateY(-4px);
+}
+
+.doc-destacado-img {
+    flex: 0 0 220px;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+}
+
+.doc-destacado-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.doc-destacado-body {
+    flex: 1;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-destacado-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.doc-destacado-body h3 {
+    font-size: 16px;
+    color: #e0f7ff;
+    margin-bottom: 10px;
+    text-align: left;
+    letter-spacing: 0;
+}
+
+.doc-destacado-body p {
+    font-size: 13px;
+    color: #90caf9;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    flex: 1;
+}
+
+.doc-destacado-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* ===================== TARJETAS ===================== */
+.doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.doc-card {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.12);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 28px rgba(79, 195, 247, 0.25);
+}
+
+.doc-card-img {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: #0a0f1f;
+}
+
+.doc-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.doc-card:hover .doc-card-img img {
+    transform: scale(1.06);
+}
+
+.doc-card-body {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.doc-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.doc-card-body h3 {
+    font-size: 14px;
+    color: #e0f7ff;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.doc-card-body p {
+    font-size: 12px;
+    color: #90caf9;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    flex: 1;
+}
+
+.doc-card-footer {
+    border-top: 1px solid rgba(79, 195, 247, 0.08);
+    padding-top: 12px;
+}
+
+.doc-card-footer-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.doc-card-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* ===================== BADGES ===================== */
+.doc-tipo-badge {
+    font-size: 10px;
+    color: #4fc3f7;
+    background: rgba(79, 195, 247, 0.12);
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.doc-cat-badge {
+    font-size: 10px;
+    color: #90caf9;
+    background: rgba(144, 202, 249, 0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.doc-autor {
+    font-size: 11px;
+    color: rgba(144, 202, 249, 0.6);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.doc-version {
+    font-size: 11px;
+    color: rgba(79, 195, 247, 0.5);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.doc-card-autor,
+.doc-card-version {
+    font-size: 10px;
+    color: rgba(144, 202, 249, 0.5);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.doc-card-fecha {
+    font-size: 10px;
+    color: rgba(144, 202, 249, 0.45);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.doc-card-destacado-badge {
+    font-size: 9px;
+    color: #ffd54f;
+    background: rgba(255, 213, 79, 0.12);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===================== BOTONES ===================== */
+.doc-btn {
+    display: inline-block;
+    padding: 8px 18px;
+    background: transparent;
+    border: 1.5px solid #4fc3f7;
+    border-radius: 6px;
+    color: #4fc3f7;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.doc-btn:hover {
+    background: #4fc3f7;
+    color: #0a0a1a;
+    box-shadow: 0 0 15px #4fc3f7;
+}
+
+.doc-btn-secundario {
+    border-color: rgba(79, 195, 247, 0.3);
+    color: #90caf9;
+}
+
+.doc-btn-secundario:hover {
+    border-color: #4fc3f7;
+}
+
+.doc-btn-sm {
+    padding: 6px 12px;
+    font-size: 10px;
+}
+
+/* ===================== MODAL PDF ===================== */
+.pdf-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 30px 30px;
+    box-sizing: border-box;
+}
+
+.pdf-modal.abierto {
+    display: flex;
+}
+
+.pdf-modal-contenido {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    height: 90vh;
+}
+
+.pdf-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.pdf-modal-header h3 {
+    font-size: 15px;
+    color: #e0f7ff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.pdf-modal-acciones {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.pdf-modal-viewer {
+    flex: 1;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #1a1a2e;
+}
+
+.pdf-modal-cerrar {
+    background: none;
+    border: none;
+    color: #e0f7ff;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1;
+}
+
+.pdf-modal-cerrar:hover {
+    color: #4fc3f7;
+    transform: scale(1.2);
+}
+
+/* ===================== VACÍO ===================== */
+.doc-vacio {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #90caf9;
+    font-size: 14px;
+}
+
+/* ===================== SKELETON ===================== */
+.doc-skeleton-inner {
+    background: rgba(17, 24, 39, 0.7);
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 320px;
+}
+
+.doc-skeleton-inner .skeleton-line {
+    margin: 12px 18px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+    .doc-destacado-card {
+        flex-direction: column;
+    }
+
+    .doc-destacado-img {
+        flex: 0 0 200px;
+    }
+
+    .doc-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    .doc-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .doc-search-wrapper {
+        max-width: 100%;
+    }
+
+    .doc-orden-select {
+        width: 100%;
+    }
+
+    .pdf-modal {
+        padding: 40px 12px 12px;
+    }
+
+    .pdf-modal-contenido {
+        height: 85vh;
+    }
+
+    .pdf-modal-header h3 {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .doc-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .doc-filtro-btn {
+        padding: 6px 12px;
+        font-size: 9.5px;
+    }
+
+    .doc-stat-item {
+        min-width: 100px;
+        padding: 12px 16px;
+    }
+
+    .doc-stat-num {
+        font-size: 20px;
+    }
+
+    .doc-destacado-body {
+        padding: 16px;
+    }
+}

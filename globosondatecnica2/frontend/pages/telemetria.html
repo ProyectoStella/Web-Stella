@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vista del sistema de telemetría desarrollado por el Proyecto STELLA para el globo estratosférico: temperatura, presión y gráficos en tiempo real.">
+<meta name="theme-color" content="#0a0a1a">
+<meta property="og:title" content="Telemetría en Vivo | STELLA">
+<meta property="og:description" content="Vista del sistema de telemetría desarrollado por el Proyecto STELLA. Datos de prueba del sistema.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://stellaproject.com.ar/assets/images/og-portada.png">
+<link rel="canonical" href="https://stellaproject.com.ar/pages/telemetria.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/images/Logo.png">
+<title>Telemetría | STELLA</title>
+<link rel="stylesheet" href="../css/base/reset.css?v=17">
+<link rel="stylesheet" href="../css/base/background.css?v=17">
+<link rel="stylesheet" href="../css/components/navbar.css?v=17">
+<link rel="stylesheet" href="../css/components/footer.css?v=17">
+<link rel="stylesheet" href="../css/components/section.css?v=17">
+<link rel="stylesheet" href="../css/components/breadcrumb.css?v=17">
+<link rel="stylesheet" href="../css/pages/telemetria.css?v=17">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="../assets/backgrounds/fototierra.jpg" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<div id="breadcrumb"></div>
+
+<main>
+    <section class="page-section" id="datos">
+        <h1>Telemetría en Vivo</h1>
+        <p class="subtitle">Vista del sistema de telemetría desarrollado por el proyecto (datos de prueba)</p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Temperatura</h3>
+                <p id="temp">--</p>
+                <span class="label">°C</span>
+            </div>
+            <div class="card">
+                <h3>Presión</h3>
+                <p id="presion">--</p>
+                <span class="label">hPa</span>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-wrapper">
+                <canvas id="chart-temp"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="chart-pres"></canvas>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../js/utils/constants.js?v=17"></script>
+<script src="../js/utils/helpers.js?v=17"></script>
+<script src="../js/utils/iconos.js?v=17"></script>
+<script src="../js/components/navbar.js?v=17"></script>
+<script src="../js/components/breadcrumb.js?v=17"></script>
+<script src="../js/components/footer.js?v=17"></script>
+<script src="../js/pages/graficos.js?v=17"></script>
+<script src="../js/pages/telemetria.js?v=17"></script>
+</body>
+</html>

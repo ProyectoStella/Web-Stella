@@ -1,0 +1,73 @@
+[
+    {
+        "titulo": "Altura objetivo",
+        "valor": 35,
+        "unidad": "km",
+        "icono": "🎯",
+        "descripcion": "Altitud estimada que se espera alcanzar en la estratósfera"
+    },
+    {
+        "titulo": "Velocidad de ascenso",
+        "valor": 5.5,
+        "unidad": "m/s",
+        "icono": "⬆️",
+        "descripcion": "Velocidad de ascenso estimada para la misión"
+    },
+    {
+        "titulo": "Velocidad de descenso",
+        "valor": 5.8,
+        "unidad": "m/s",
+        "icono": "⬇️",
+        "descripcion": "Velocidad de descenso estimada con paracaídas"
+    },
+    {
+        "titulo": "Tiempo de vuelo estimado",
+        "valor": "3",
+        "unidad": "h",
+        "icono": "⏰",
+        "descripcion": "Duración total estimada del vuelo"
+    },
+    {
+        "titulo": "Alcance horizontal estimado",
+        "valor": 151.6,
+        "unidad": "km",
+        "icono": "📍",
+        "descripcion": "Distancia horizontal estimada desde el punto de lanzamiento"
+    },
+    {
+        "titulo": "Helio estimado",
+        "valor": 5.45,
+        "unidad": "m³",
+        "icono": "🎈",
+        "descripcion": "Volumen de helio estimado para el inflado de los globos"
+    },
+    {
+        "titulo": "Carga útil",
+        "valor": 2,
+        "unidad": "kg",
+        "icono": "📦",
+        "descripcion": "Peso aproximado de la cápsula"
+    },
+    {
+        "titulo": "Integrantes del equipo",
+        "valor": 25,
+        "unidad": "",
+        "icono": "👥",
+        "descripcion": "Estudiantes trabajando en un único equipo"
+    },
+    {
+        "titulo": "Áreas de trabajo",
+        "valor": 6,
+        "unidad": "",
+        "icono": "🗂️",
+        "descripcion": "Áreas del equipo unificado"
+    },
+    {
+        "titulo": "Documentos publicados",
+        "valor": 2,
+        "origen": "documentos",
+        "unidad": "",
+        "icono": "📄",
+        "descripcion": "Informes, manuales y carpetas de campo del proyecto"
+    }
+]

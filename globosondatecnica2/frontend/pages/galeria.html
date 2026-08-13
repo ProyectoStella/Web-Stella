@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Galería de imágenes del proyecto STELLA: modelado 3D, impresión, hardware, software y vuelo.">
+<meta name="theme-color" content="#0a0a1a">
+<meta property="og:title" content="Galería | STELLA">
+<meta property="og:description" content="Explorá las imágenes del proyecto de globo estratosférico STELLA organizadas por categoría.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://stellaproject.com.ar/assets/images/og-portada.png">
+<link rel="canonical" href="https://stellaproject.com.ar/pages/galeria.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/images/Logo.png">
+<title>Galería | STELLA</title>
+<link rel="stylesheet" href="../css/base/reset.css?v=17">
+<link rel="stylesheet" href="../css/base/background.css?v=17">
+<link rel="stylesheet" href="../css/components/navbar.css?v=17">
+<link rel="stylesheet" href="../css/components/footer.css?v=17">
+<link rel="stylesheet" href="../css/components/section.css?v=17">
+<link rel="stylesheet" href="../css/components/skeleton.css?v=17">
+<link rel="stylesheet" href="../css/components/breadcrumb.css?v=17">
+<link rel="stylesheet" href="../css/pages/galeria.css?v=17">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="../assets/backgrounds/fototierra.jpg" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<div id="breadcrumb"></div>
+
+<main>
+    <section class="page-section" id="galeria">
+        <h1>Galería</h1>
+        <p class="subtitle">Imágenes y contenido multimedia del proyecto</p>
+
+        <div class="galeria-buscador">
+            <input type="text" class="galeria-search" id="galeria-search" placeholder="Buscar por título, categoría o descripción...">
+        </div>
+
+        <div class="galeria-filtros" id="galeria-filtros"></div>
+
+        <div class="galeria-grid" id="galeria-grid">
+            <div class="skeleton-card galeria-skeleton" style="min-height:320px;">
+                <div style="height:220px;background:rgba(79,195,247,0.06);border-radius:8px 8px 0 0;animation:skeleton-pulse 1.5s ease-in-out infinite;"></div>
+                <div style="padding:16px 18px;">
+                    <div class="skeleton-line" style="width:50%;"></div>
+                    <div class="skeleton-line"></div>
+                </div>
+            </div>
+            <div class="skeleton-card galeria-skeleton" style="min-height:320px;">
+                <div style="height:220px;background:rgba(79,195,247,0.06);border-radius:8px 8px 0 0;animation:skeleton-pulse 1.5s ease-in-out infinite;"></div>
+                <div style="padding:16px 18px;">
+                    <div class="skeleton-line" style="width:50%;"></div>
+                    <div class="skeleton-line"></div>
+                </div>
+            </div>
+            <div class="skeleton-card galeria-skeleton" style="min-height:320px;">
+                <div style="height:220px;background:rgba(79,195,247,0.06);border-radius:8px 8px 0 0;animation:skeleton-pulse 1.5s ease-in-out infinite;"></div>
+                <div style="padding:16px 18px;">
+                    <div class="skeleton-line" style="width:50%;"></div>
+                    <div class="skeleton-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer"></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+    <button class="lightbox-cerrar" id="lightbox-cerrar" aria-label="Cerrar visor">&times;</button>
+    <button class="lightbox-nav anterior" id="lightbox-ant" aria-label="Imagen anterior">&lsaquo;</button>
+    <button class="lightbox-nav siguiente" id="lightbox-sig" aria-label="Imagen siguiente">&rsaquo;</button>
+    <div class="lightbox-contenido">
+        <img class="lightbox-img" id="lightbox-img" src="" alt="">
+        <div class="lightbox-info">
+            <h3 id="lightbox-titulo"></h3>
+            <p id="lightbox-desc"></p>
+            <span class="lightbox-fecha" id="lightbox-fecha"></span>
+        </div>
+        <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+    </div>
+    <span class="lightbox-contador" id="lightbox-contador"></span>
+</div>
+
+<script src="../js/utils/constants.js?v=17"></script>
+<script src="../js/utils/helpers.js?v=17"></script>
+<script src="../js/utils/iconos.js?v=17"></script>
+<script src="../js/components/navbar.js?v=17"></script>
+<script src="../js/components/breadcrumb.js?v=17"></script>
+<script src="../js/components/footer.js?v=17"></script>
+<script src="../js/pages/galeria.js?v=17"></script>
+</body>
+</html>

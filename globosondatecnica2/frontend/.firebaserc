@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "proyectostella-4802b"
+  },
+  "targets": {
+    "proyectostella-4802b": {
+      "hosting": {
+        "stella": [
+          "proyectostellast"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

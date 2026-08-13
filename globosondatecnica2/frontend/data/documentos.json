@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "titulo": "Carpeta de Campo - Proyecto STELLA",
+        "descripcion": "Registro completo de actividades, mediciones y observaciones realizadas durante el desarrollo del proyecto STELLA.",
+        "categoria": "Carpetas de Campo",
+        "tipo": "WORD",
+        "fecha": "07/08/2026",
+        "autor": "Equipo STELLA",
+        "version": "1.0",
+        "archivo": "documentos/carpetas_de_campo/Carpeta_de_Campo_Proyecto_Stella_1.docx",
+        "portada": "assets/images/documentos/PortadaCarpetadecampo1.jpg",
+        "destacado": false
+    },
+    {
+        "id": 2,
+        "titulo": "Informe Técnico - Proyecto STELLA",
+        "descripcion": "Informe detallado de los resultados obtenidos durante la fase de pruebas del proyecto STELLA.",
+        "categoria": "Informes Técnicos",
+        "tipo": "WORD",
+        "fecha": "15/09/2026",
+        "autor": "Equipo STELLA",
+        "version": "1.0",
+        "archivo": "documentos/informes/Proyecto_Stella_Informe_Feria_v3.docx",
+        "portada": "assets/images/documentos/PortadaInformetecnico1.jpg",
+        "destacado": false
+    }
+]

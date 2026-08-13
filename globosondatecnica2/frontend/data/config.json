@@ -1,0 +1,49 @@
+{
+    "nombre_proyecto": "STELLA",
+    "lema": "Más Allá del Cielo Comienza Nuestra Misión",
+    "descripcion_corta": "Proyecto educativo de globo estratosférico",
+    "descripcion_larga": "Proyecto educativo de globo estratosférico de la EEST N°2 \"Luciano Fortabat\" de Olavarría, cuyo objetivo es alcanzar aproximadamente 35 km de altura, registrar imágenes y recopilar datos ambientales durante el vuelo.",
+    "escuela": "EEST N°2 \"Luciano Fortabat\"",
+    "tecnicatura": "Tecnicatura en Informática",
+    "profesor": "Alejandro Wagner",
+    "ciudad": "Olavarría",
+    "provincia": "Provincia de Buenos Aires",
+    "pais": "Argentina",
+    "anio_inicio": 2026,
+    "correo": "santatrinidad2026@gmail.com",
+    "contacto_endpoint": "https://script.google.com/macros/s/AKfycbxE8NEI0d9H4Ek3S7uou4PqyjpqvUHG35deDL2MrjBfbPKjUryw6RcSKMZlbyvjVTuk5w/exec",
+    "telefono": "",
+    "direccion": "",
+    "api_url": "http://127.0.0.1:5000/datos",
+    "logo": "assets/images/Logo.png",
+    "favicon": "assets/images/Logo.png",
+    "imagen_hero": "",
+    "hero_titulo": "Más Allá del Cielo Comienza Nuestra Misión",
+    "hero_descripcion": "Proyecto educativo de globo estratosférico de la EEST N°2 \"Luciano Fortabat\" de Olavarría. Diseñamos, construimos y preparamos una cápsula capaz de alcanzar aproximadamente 35 km de altura para registrar imágenes y datos ambientales.",
+    "estado_actual": "En etapa de desarrollo y preparación",
+    "fecha_lanzamiento": "Octubre de 2026",
+    "redes_sociales": {
+        "instagram": {
+            "url": "https://www.instagram.com/stella_st.26",
+            "icono": "assets/icons/instagram.svg"
+        },
+        "tiktok": {
+            "url": "https://www.tiktok.com/@stella_st.26",
+            "icono": "assets/icons/tiktok.svg"
+        },
+        "youtube": {
+            "url": "",
+            "icono": ""
+        },
+        "facebook": {
+            "url": "",
+            "icono": ""
+        },
+        "github": {
+            "url": "",
+            "icono": ""
+        }
+    },
+    "copyright": "© {year} {nombre_proyecto} - {escuela}",
+    "version_actual": "v4.1.3"
+}
