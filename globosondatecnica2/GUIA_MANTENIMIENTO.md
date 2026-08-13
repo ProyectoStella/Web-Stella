@@ -23,6 +23,7 @@ Manual para administrar y actualizar el sitio web del proyecto STELLA sin necesi
 15. [Modificar secciones de la página Inicio](#15-modificar-secciones-de-la-página-inicio)
 16. [Modificar las novedades (Noticias)](#16-modificar-las-novedades-noticias)
 17. [SEO y compartir en redes](#17-seo-y-compartir-en-redes)
+18. [Desplegar en Vercel](#18-desplegar-en-vercel)
 
 ---
 
@@ -33,6 +34,9 @@ email_contacto_web.gs                  # Script de Google Apps Script para envia
 frontend/
 ├── index.html                          # Landing page institucional con 10 secciones dinámicas
 ├── 404.html                            # Página de error personalizada
+├── vercel.json                         # Configuración de despliegue en Vercel (headers de caché)
+├── api/                                # Serverless functions de Vercel
+│   └── datos.py                        # Endpoint de telemetría (/api/datos)
 │
 ├── pages/                              # Páginas internas del sitio
 │   ├── proyecto.html                   # Presentación institucional del proyecto
@@ -478,19 +482,22 @@ Cada red tiene dos campos:
 
 ---
 
-## 8. Cambiar la URL de la API Flask
+## 8. Cambiar la URL de la API de telemetría
 
 ### Archivo a modificar
 
-`js/utils/constants.js`
+`data/config.json` (campo `api_url`) y, como respaldo, `js/utils/constants.js` (constante `API_URL`).
 
-### Constante a editar
+### Valor por defecto
 
 ```js
-API_URL: 'http://127.0.0.1:5000/datos'
+API_URL: '/api/datos'
 ```
 
-Cambiar solo el valor entre comillas por la nueva URL del backend.
+- En **Vercel**, la URL es relativa `/api/datos` y apunta a la serverless function `api/datos.py`.
+- Para **probar localmente con Flask**, cambiar el valor por `http://127.0.0.1:5000/datos` (tanto en `config.json` como en `constants.js`).
+
+> Nota: la página de telemetría lee primero `api_url` de `config.json`; si ese campo falta, usa `App.constants.API_URL` como respaldo. Ambos deben apuntar al mismo endpoint.
 
 ---
 
@@ -665,7 +672,7 @@ El navbar se actualizará automáticamente en todas las páginas.
 - **Rutas relativas desde `pages/`:** las páginas dentro de `pages/` deben usar `../` para referirse a CSS, JS, datos y assets.
 - **Archivos JSON:** mantener el formato válido. Después de la última entrada no debe haber coma. Usar un validador JSON si es necesario.
 - **Probar los cambios:** después de modificar un JSON, recargar la página para verificar que los datos se muestren correctamente.
-- **No modificar el backend Flask** a menos que sea estrictamente necesario. El frontend está diseñado para funcionar con la API existente.
+- **No modificar el endpoint de telemetría** (`api/datos.py` en Vercel o `backend/app.py` con Flask local) a menos que sea estrictamente necesario. El frontend está diseñado para funcionar con la API existente.
 - **Mantener la documentación actualizada:** después de cada modificación, verificar que `CHANGELOG.md`, `GUIA_MANTENIMIENTO.md` y `TODO.md` reflejen el estado actual del proyecto.
 
 ---
@@ -893,4 +900,42 @@ Estas secciones reutilizan los datos de `data/proyecto.json`. Para modificarlas,
 - **`canonical` y `og:url`:** usan el dominio `https://stellaproject.com.ar`. Si el dominio real cambia, actualizar los `<link rel="canonical">` y `<meta property="og:url">` de todos los HTML.
 - **`robots.txt`:** excluye `pages/telemetria.html` (página oculta) y la carpeta `data/`.
 - **`sitemap.xml`:** lista las páginas indexables. Actualizarlo si se agregan páginas nuevas.
-- **Versionado de archivos:** al modificar JS/CSS, incrementar el `?v=` en las referencias de los HTML para forzar la actualización de caché (actualmente `?v=3`).
+- **Versionado de archivos:** al modificar JS/CSS, incrementar el `?v=` en las referencias de los HTML para forzar la actualización de caché (actualmente `?v=18`).
+
+---
+
+## 18. Desplegar en Vercel
+
+El sitio se puede desplegar en Vercel además de Firebase. Vercel sirve el contenido estático de `frontend/` y ejecuta la telemetría mediante una serverless function Python (`api/datos.py`), sin necesidad de Flask.
+
+### Requisitos
+
+- El directorio raíz (Root Directory) debe ser **`frontend`**.
+- El archivo `frontend/vercel.json` contiene los headers de caché equivalentes a los de `firebase.json`.
+- La función `api/datos.py` expone el endpoint `/api/datos` (misma respuesta JSON que el backend Flask local).
+
+### Desplegar desde la consola de Vercel
+
+1. Importar el repositorio en https://vercel.com (New Project).
+2. Configurar **Root Directory → `frontend`**.
+3. Framework Preset: **Other** (es un sitio estático).
+4. Deploy. La telemetría queda disponible en `https://<proyecto>.vercel.app/api/datos`.
+
+### Desplegar con la CLI de Vercel
+
+```bash
+cd frontend
+npx vercel --prod
+```
+
+### Verificar
+
+- Inicio y subpáginas cargan correctamente.
+- La página de telemetría (`pages/telemetria.html`) muestra valores actualizados cada 2 segundos (usa `/api/datos`).
+- El formulario de contacto sigue usando `contacto_endpoint` de `config.json` (Google Apps Script), independiente del hosting.
+
+### Notas
+
+- `404.html` es respetado por Vercel como página de error personalizada.
+- Los datos `data/**` y los HTML se sirven con `no-cache` (igual que en Firebase).
+- Para pruebas locales con Flask, cambiar `api_url` en `data/config.json` y `API_URL` en `js/utils/constants.js` a `http://127.0.0.1:5000/datos`.

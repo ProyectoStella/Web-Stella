@@ -1,7 +1,7 @@
 var App = window.App || {};
 
 App.constants = {
-    API_URL: 'http://127.0.0.1:5000/datos',
+    API_URL: '/api/datos',
     NAV_PAGES: [
         { file: 'index.html', label: 'Inicio' },
         { file: 'proyecto.html', label: 'Proyecto' },

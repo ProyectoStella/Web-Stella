@@ -14,7 +14,7 @@
     "contacto_endpoint": "https://script.google.com/macros/s/AKfycbxE8NEI0d9H4Ek3S7uou4PqyjpqvUHG35deDL2MrjBfbPKjUryw6RcSKMZlbyvjVTuk5w/exec",
     "telefono": "",
     "direccion": "",
-    "api_url": "http://127.0.0.1:5000/datos",
+    "api_url": "/api/datos",
     "logo": "assets/images/Logo.png",
     "favicon": "assets/images/Logo.png",
     "imagen_hero": "",

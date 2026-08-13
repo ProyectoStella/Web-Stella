@@ -6,6 +6,29 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 
 ---
 
+## [v4.2.0] — Compatibilidad con Vercel
+
+### Nuevas funcionalidades
+- **Despliegue en Vercel** — el sitio ahora se puede publicar en Vercel además de Firebase:
+  - `frontend/vercel.json` con headers de caché equivalentes a los de `firebase.json` (`no-cache` para `data/**` y HTML; caché pública para CSS, JS y assets).
+  - `frontend/api/datos.py` — serverless function Python que reemplaza al backend Flask en producción. Expone el endpoint `/api/datos` con la misma respuesta JSON (temperatura y presión simuladas).
+- `frontend/.gitignore` — agregado `.vercel/` (caché local de la CLI de Vercel).
+
+### Cambios
+- `data/config.json` → `api_url` ahora apunta a `/api/datos` (ruta relativa, funciona en cualquier dominio).
+- `js/utils/constants.js` → `API_URL` pasa a `/api/datos` como valor de respaldo.
+- Cache-busting global actualizado a `?v=18` en los 10 HTML.
+
+### Archivos creados
+- `frontend/vercel.json`
+- `frontend/api/datos.py`
+
+### Notas
+- Para desplegar: Root Directory = `frontend` (o `npx vercel --prod` desde esa carpeta).
+- El backend Flask (`backend/app.py`) se mantiene para desarrollo local; la página de telemetría usa `/api/datos` en producción.
+
+---
+
 ## [v4.1.3] — Corrección del envío y rediseño visual de Contacto
 
 - **Causa del botón que no enviaba:** Firebase cacheaba `config.json` (~1h), y con la versión vieja el formulario caía al fallback `mailto`. Ahora:
