@@ -71,14 +71,8 @@ App.inicio = (function() {
 
         var badgeEl = c.querySelector('.hero-badge');
         if (badgeEl) {
-            var fecha = parsearFechaLanzamiento(config.fecha_lanzamiento);
-            var dias = diasHasta(fecha);
-            if (fecha && dias !== null && dias > 0) {
-                badgeEl.textContent = 'Próximo lanzamiento: ' + config.fecha_lanzamiento + ' · faltan ' + dias + ' días';
-                badgeEl.style.display = 'inline-flex';
-            } else {
-                badgeEl.style.display = 'none';
-            }
+            badgeEl.textContent = 'Próximo lanzamiento: indefinido';
+            badgeEl.style.display = 'inline-flex';
         }
     }
 
@@ -118,7 +112,7 @@ App.inicio = (function() {
             '<span class="home-progreso-texto">' + progreso + '% de avance</span>' +
             '</div>' +
             etapasHtml +
-            (config && config.fecha_lanzamiento ? '<div class="home-estado-lanzamiento">Próximo lanzamiento: ' + config.fecha_lanzamiento + '</div>' : '') +
+            '<div class="home-estado-lanzamiento">Próximo lanzamiento: indefinido</div>' +
             '</div>';
     }
 

@@ -49,6 +49,6 @@ Lista oficial de tareas pendientes del proyecto.
 - [x] **v3.2.0** — Centralización de configuración institucional: creado `data/config.json`, migración de datos institucionales desde constants.js, HTML y JS; footer, hero y contacto dinámicos; caché de configuración con `App.cargarConfig()`; separación de constantes técnicas vs institucionales.
 - [x] **v3.4.0** — Galería profesional: categorías dinámicas, tarjetas modernas, lightbox con navegación, lazy loading, SVGs placeholder.
 - [x] **v3.5.0** — Centro de Documentación Técnica: estadísticas automáticas, filtros por categoría, ordenamiento, documentos destacados, tarjetas con portada, visor PDF embebido, preparado para crecimiento.
-- [x] **v4.0.0** — Actualización de información institucional (etapa actual del proyecto, lanzamiento octubre 2026, config técnica real).
+- [x] **v4.0.0** — Actualización de información institucional (etapa actual del proyecto, indefinido en mes de octubre, config técnica real).
 - [x] **v4.2.0** — Compatibilidad con Vercel: serverless function `api/datos.py`, `vercel.json` con headers de caché, `api_url` relativa `/api/datos`, cache-busting `?v=18`.
 - [x] **v4.1.0** — Mejoras integrales: página Noticias, formulario de contacto, buscador y miniaturas en galería, iconos SVG locales, barra de progreso + etapas, badge de lanzamiento con countdown, footer enriquecido, SEO (og-image, canonical, robots.txt, sitemap.xml), accesibilidad (role=dialog, aria, teclado), jerarquía h1, stats de documentos dinámicas, fix firebase.json, cache-busting `?v=3`.
