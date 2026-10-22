@@ -5,8 +5,6 @@
     App.cargarConfig().then(function(config) {
         if (!config) return;
 
-        var inPages = App.utils.isInPages();
-
         var footer = document.createElement('footer');
         footer.className = 'site-footer';
 
@@ -32,27 +30,6 @@
         marcaCol.appendChild(marca);
         marcaCol.appendChild(lema);
 
-        var navCol = document.createElement('div');
-        navCol.className = 'footer-col';
-        var navTitulo = document.createElement('h4');
-        navTitulo.textContent = 'Secciones';
-        navCol.appendChild(navTitulo);
-        var navLista = document.createElement('ul');
-        navLista.className = 'footer-links';
-        App.constants.NAV_PAGES.forEach(function(p) {
-            var li = document.createElement('li');
-            var a = document.createElement('a');
-            if (p.file === 'index.html') {
-                a.href = inPages ? '../index.html' : 'index.html';
-            } else {
-                a.href = inPages ? p.file : 'pages/' + p.file;
-            }
-            a.textContent = p.label;
-            li.appendChild(a);
-            navLista.appendChild(li);
-        });
-        navCol.appendChild(navLista);
-
         var contactoCol = document.createElement('div');
         contactoCol.className = 'footer-col';
         var contTitulo = document.createElement('h4');
@@ -71,7 +48,6 @@
         contactoCol.appendChild(ver);
 
         top.appendChild(marcaCol);
-        top.appendChild(navCol);
         top.appendChild(contactoCol);
 
         var redes = document.createElement('div');

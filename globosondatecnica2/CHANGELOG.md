@@ -6,6 +6,17 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 
 ---
 
+## [v4.4.3] — Quitar la columna "Secciones" del pie de página
+
+### Cambios
+- **Se elimina la columna "Secciones" del footer.** El pie de página queda con 2 columnas: la marca (logo, nombre y lema) y el contacto (email y versión).
+- `globosondatecnica2/frontend/js/components/footer.js` — se deja de generar la lista de enlaces de navegación del footer.
+- `globosondatecnica2/frontend/css/components/footer.css` — la grilla `.footer-top` pasa de 3 columnas (`1.4fr 1fr 1fr`) a 2 (`1.4fr 1fr`) y se eliminan los estilos de `.footer-links`, que quedan sin uso.
+- Caché de `footer.js` y `footer.css` subida a `?v=20` en las 11 páginas HTML del sitio.
+- `globosondatecnica2/frontend/data/config.json` — `version_actual` actualizada a v4.4.3.
+
+---
+
 ## [v4.4.2] — Fechas de las entrevistas y notas de prensa
 
 ### Nuevas funcionalidades

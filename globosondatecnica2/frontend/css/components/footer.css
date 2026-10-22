@@ -31,7 +31,7 @@
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 30px;
     text-align: left;
 }
@@ -68,24 +68,6 @@
     line-height: 1.6;
     max-width: 300px;
     margin: 0;
-}
-
-.footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.footer-links a {
-    color: #90caf9;
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-}
-
-.footer-links a:hover {
-    color: #4fc3f7;
 }
 
 .footer-mail {
