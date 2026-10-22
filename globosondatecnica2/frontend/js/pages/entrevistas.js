@@ -14,11 +14,9 @@ App.entrevistas = (function() {
             .then(function(data) {
                 entrevistasCache = data || [];
                 renderizar(contenedor, entrevistasCache);
-                actualizarCantidad(entrevistasCache.length);
             })
             .catch(function() {
                 contenedor.innerHTML = '<p class="entrevistas-vacio">No se pudieron cargar las entrevistas.</p>';
-                actualizarCantidad(0);
             });
     }
 
@@ -59,12 +57,6 @@ App.entrevistas = (function() {
         var partes = String(fecha).split('-');
         if (partes.length === 3) return partes[2] + '/' + partes[1] + '/' + partes[0];
         return fecha;
-    }
-
-    function actualizarCantidad(cantidad) {
-        var el = document.getElementById('entrevistas-cantidad');
-        if (!el) return;
-        el.textContent = cantidad === 1 ? '1 entrevista publicada' : cantidad + ' entrevistas publicadas';
     }
 
     document.addEventListener('DOMContentLoaded', cargar);
