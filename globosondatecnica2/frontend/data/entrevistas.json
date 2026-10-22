@@ -3,7 +3,8 @@
         "id": 1,
         "titulo": "Vamos con vos",
         "medio": "Instagram",
-        "descripcion": "El equipo STELLA habló sobre el proyecto del globo estratosférico, la misión educativa y los preparativos del despegue.",
+        "fecha": "2026-07-16",
+        "descripcion": "El equipo STELLA participó de Vamos con vos para presentar el proyecto del globo estratosférico y la misión educativa.",
         "portada": "assets/images/entrevistas/Entrevista - Vamos con vos.png",
         "link": "https://www.instagram.com/reel/Da3RVYTRWZg/?vrfl=anE0N2dpYTljNG1x",
         "destacado": true
@@ -12,7 +13,8 @@
         "id": 2,
         "titulo": "En acción Olavarría",
         "medio": "Instagram",
-        "descripcion": "Cobertura del proyecto STELLA desde Olavarría: la escuela, el globo y todo lo que hay detrás de cada etapa.",
+        "fecha": "2026-09-11",
+        "descripcion": "En acción Olavarría estuvo con el equipo STELLA y su globo estratosférico.",
         "portada": "assets/images/entrevistas/Entrevista - En accion olavarria.png",
         "link": "https://www.instagram.com/reel/DdJqF6vxeXV/?cplk=cHUzZnc0YWFteWxx",
         "destacado": false
@@ -21,7 +23,8 @@
         "id": 3,
         "titulo": "Central de noticias Olavarría",
         "medio": "Instagram",
-        "descripcion": "La Central de Noticias de Olavarría dio visibilidad al proyecto del globo estratosférico de la EEST N°2.",
+        "fecha": "2026-08-16",
+        "descripcion": "La Central de Noticias de Olavarría dio visibilidad al proyecto STELLA de la EEST N°2.",
         "portada": "assets/images/entrevistas/Entrevista - Central de noticias olavarria.png",
         "link": "https://www.instagram.com/reel/DcHg4mloV1G/?vrfl=cnJidXhuNjYwNDQx",
         "destacado": false
@@ -30,7 +33,8 @@
         "id": 4,
         "titulo": "Canal Uno",
         "medio": "Instagram",
-        "descripcion": "Entrevista al equipo STELLA sobre el diseño, la construcción de la cápsula y el plan de vuelo.",
+        "fecha": "2026-08-22",
+        "descripcion": "Canal Uno interviewed al equipo STELLA sobre la construcción de la cápsula y el plan de vuelo.",
         "portada": "assets/images/entrevistas/Entrevista - Canal uno.png",
         "link": "https://www.instagram.com/reel/DcV-e2mhS6r/?cplk=NnhtbDZzcWgwbGE0",
         "destacado": false

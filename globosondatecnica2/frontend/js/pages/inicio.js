@@ -300,11 +300,14 @@ App.inicio = (function() {
 
         c.innerHTML = noticias.slice(0, 3).map(function(n) {
             var fecha = n.fecha ? '<span class="home-noticia-fecha">' + n.fecha + '</span>' : '';
-            return '<div class="home-noticia-card animar-entrada">' +
-                fecha +
+            var cuerpo = fecha +
                 '<h4>' + n.titulo + '</h4>' +
                 '<p>' + n.descripcion + '</p>' +
-                '</div>';
+                (n.link ? '<span class="home-noticia-cta">Ver publicación</span>' : '');
+            if (n.link) {
+                return '<a class="home-noticia-card home-noticia-card-link" href="' + n.link + '" target="_blank" rel="noopener">' + cuerpo + '</a>';
+            }
+            return '<div class="home-noticia-card animar-entrada">' + cuerpo + '</div>';
         }).join('') +
         '<div class="home-noticias-ver-todas animar-entrada">' +
         '<a href="' + App.utils.dataUrl('pages/noticias.html') + '" class="home-btn">Ver todas las novedades</a></div>';

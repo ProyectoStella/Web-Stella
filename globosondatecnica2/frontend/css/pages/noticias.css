@@ -58,6 +58,30 @@
     margin: 0;
 }
 
+.noticia-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.noticia-card-link:hover {
+    border-left-color: #b3e5fc;
+}
+
+.noticia-cta {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
+    color: #4fc3f7;
+}
+
+.noticia-card-link:hover .noticia-cta {
+    color: #b3e5fc;
+}
+
 .noticias-vacio {
     grid-column: 1 / -1;
     text-align: center;

@@ -1,20 +1,52 @@
 [
     {
         "id": 1,
+        "titulo": "El equipo STELLA en En acción Olavarría",
+        "fecha": "11/09/2026",
+        "categoria": "Prensa",
+        "descripcion": "El equipo STELLA presentó el globo estratosférico en En acción Olavarría.",
+        "link": "https://www.instagram.com/reel/DdJqF6vxeXV/?cplk=cHUzZnc0YWFteWxx"
+    },
+    {
+        "id": 2,
+        "titulo": "Entrevista en Canal Uno",
+        "fecha": "22/08/2026",
+        "categoria": "Prensa",
+        "descripcion": "Canal Uno entrevistó al equipo STELLA sobre la cápsula y el plan de vuelo.",
+        "link": "https://www.instagram.com/reel/DcV-e2mhS6r/?cplk=NnhtbDZzcWgwbGE0"
+    },
+    {
+        "id": 3,
+        "titulo": "STELLA en la Central de Noticias de Olavarría",
+        "fecha": "16/08/2026",
+        "categoria": "Prensa",
+        "descripcion": "La Central de Noticias de Olavarría dio visibilidad al proyecto STELLA.",
+        "link": "https://www.instagram.com/reel/DcHg4mloV1G/?vrfl=cnJidXhuNjYwNDQx"
+    },
+    {
+        "id": 4,
         "titulo": "El proyecto avanza hacia la etapa de pruebas",
         "fecha": "12/08/2026",
         "categoria": "Proyecto",
         "descripcion": "El equipo de STELLA continúa completando la adquisición de componentes y se prepara para iniciar las pruebas físicas de la cápsula. El lanzamiento está previsto para octubre de 2026."
     },
     {
-        "id": 2,
+        "id": 5,
+        "titulo": "El equipo STELLA en Vamos con vos",
+        "fecha": "16/07/2026",
+        "categoria": "Prensa",
+        "descripcion": "El equipo STELLA participó de Vamos con vos para presentar el proyecto.",
+        "link": "https://www.instagram.com/reel/Da3RVYTRWZg/?vrfl=anE0N2dpYTljNG1x"
+    },
+    {
+        "id": 6,
         "titulo": "Participación en la Feria de Ciencias",
         "fecha": "15/07/2026",
         "categoria": "Eventos",
         "descripcion": "El equipo presentó la misión STELLA en la feria de ciencias de la escuela, con demostraciones de los prototipos y el modelado 3D de la cápsula."
     },
     {
-        "id": 3,
+        "id": 7,
         "titulo": "Nueva configuración técnica definida",
         "fecha": "20/06/2026",
         "categoria": "Tecnología",

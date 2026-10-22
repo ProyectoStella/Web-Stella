@@ -649,6 +649,26 @@
     margin: 0;
 }
 
+.home-noticia-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.home-noticia-cta {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
+    color: #4fc3f7;
+}
+
+.home-noticia-card-link:hover .home-noticia-cta {
+    color: #b3e5fc;
+}
+
 .home-noticias-ver-todas {
     grid-column: 1 / -1;
     text-align: center;

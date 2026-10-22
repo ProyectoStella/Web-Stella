@@ -6,6 +6,27 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 
 ---
 
+## [v4.4.2] — Fechas de las entrevistas y notas de prensa
+
+### Nuevas funcionalidades
+- **Fechas de las 4 entrevistas** cargadas en `entrevistas.json` (se muestran en la tarjeta como `DD/MM/AAAA`):
+  - Vamos con vos — 16/07/2026
+  - Canal Uno — 22/08/2026
+  - Central de noticias Olavarría — 16/08/2026
+  - En acción Olavarría — 11/09/2026
+- **Las entrevistas también aparecen en Noticias** (`noticias.json`) con categoría `Prensa`, fecha y una descripción breve.
+- **Campo `link` opcional en `noticias.json`**: cuando está presente, la tarjeta de la novedad se vuelve clickeable y abre el link en una pestaña nueva (se usa para enlazar los reels de Instagram). Funciona tanto en la página de Noticias como en el bloque "Novedades" de la portada.
+
+### Archivos modificados
+- `globosondatecnica2/frontend/data/entrevistas.json` — se agrega el campo `fecha` a las 4 entrevistas.
+- `globosondatecnica2/frontend/data/noticias.json` — se reorganization el array por fecha descendente, se agregan las 4 notas de prensa y se renumeran los `id`.
+- `globosondatecnica2/frontend/js/pages/noticias.js` — renderiza las novedades con `link` como enlace externo.
+- `globosondatecnica2/frontend/js/pages/inicio.js` — mismo comportamiento en el bloque "Novedades" de la portada.
+- `globosondatecnica2/frontend/css/pages/noticias.css` y `css/pages/inicio.css` — estilos de los enlaces y del CTA "Ver publicación".
+- `globosondatecnica2/frontend/data/config.json` — `version_actual` actualizada a v4.4.2.
+
+---
+
 ## [v4.4.1] — Restaurar carpeta `globosondatecnica2/` y datos reales de entrevistas
 
 ### Cambios importantes

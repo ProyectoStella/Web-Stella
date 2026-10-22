@@ -873,7 +873,7 @@ Estas secciones reutilizan los datos de `globosondatecnica2/frontend/data/proyec
 
 `globosondatecnica2/frontend/data/noticias.json`
 
-### Estructura del JSON (v4.0.0)
+### Estructura del JSON (v4.4.2)
 
 ```json
 [
@@ -882,7 +882,8 @@ Estas secciones reutilizan los datos de `globosondatecnica2/frontend/data/proyec
         "titulo": "Título de la novedad",
         "fecha": "12/08/2026",
         "categoria": "Proyecto",
-        "descripcion": "Texto breve de la novedad."
+        "descripcion": "Texto breve de la novedad.",
+        "link": "https://www.instagram.com/reel/XXXXXXX/"
     }
 ]
 ```
@@ -894,8 +895,9 @@ Estas secciones reutilizan los datos de `globosondatecnica2/frontend/data/proyec
 | `id` | Sí | Número entero único correlativo |
 | `titulo` | Sí | Título visible de la novedad |
 | `fecha` | No | Fecha en formato DD/MM/AAAA |
-| `categoria` | No | Etiqueta de la novedad (ej: Proyecto, Eventos, Tecnología) |
+| `categoria` | No | Etiqueta de la novedad (ej: Proyecto, Eventos, Tecnología, Prensa) |
 | `descripcion` | Sí | Texto breve que se muestra en la tarjeta |
+| `link` | No | Si está presente, la tarjeta se vuelve clickeable y abre el link en una pestaña nueva (se usa para las entrevistas de Instagram) |
 
 ### Pasos
 
@@ -903,6 +905,19 @@ Estas secciones reutilizan los datos de `globosondatecnica2/frontend/data/proyec
 2. Agregar un nuevo objeto al array con un `id` correlativo.
 3. Guardar el archivo.
 4. La página de noticias (`globosondatecnica2/frontend/pages/noticias.html`) y la sección "Novedades" del inicio mostrarán la novedad automáticamente (el inicio muestra las 3 últimas).
+
+### Entrevistas en Noticias
+
+Las 4 entrevistas de prensa también están cargadas como novedades, con categoría `Prensa` y un `link` al reel de Instagram:
+
+| Fecha | Titular | Link |
+|---|---|---|
+| 11/09/2026 | El equipo STELLA en En acción Olavarría | `instagram.com/reel/DdJqF6vxeXV/` |
+| 22/08/2026 | Entrevista en Canal Uno | `instagram.com/reel/DcV-e2mhS6r/` |
+| 16/08/2026 | STELLA en la Central de Noticias de Olavarría | `instagram.com/reel/DcHg4mloV1G/` |
+| 16/07/2026 | El equipo STELLA en Vamos con vos | `instagram.com/reel/Da3RVYTRWZg/` |
+
+> El orden del array es el orden en que se muestran. Está ordenado de la novedad más reciente a la más antigua.
 
 ---
 
@@ -1007,14 +1022,14 @@ Las entrevistas se muestran en la página `globosondatecnica2/frontend/pages/ent
 
 ### Entrevistas cargadas actualmente
 
-| id | Título | Link |
-|---|---|---|
-| 1 | Vamos con vos | `instagram.com/reel/Da3RVYTRWZg/` |
-| 2 | En acción Olavarría | `instagram.com/reel/DdJqF6vxeXV/` |
-| 3 | Central de noticias Olavarría | `instagram.com/reel/DcHg4mloV1G/` |
-| 4 | Canal Uno | `instagram.com/reel/DcV-e2mhS6r/` |
+| id | Título | Fecha | Link |
+|---|---|---|---|
+| 1 | Vamos con vos | 16/07/2026 | `instagram.com/reel/Da3RVYTRWZg/` |
+| 2 | En acción Olavarría | 11/09/2026 | `instagram.com/reel/DdJqF6vxeXV/` |
+| 3 | Central de noticias Olavarría | 16/08/2026 | `instagram.com/reel/DcHg4mloV1G/` |
+| 4 | Canal Uno | 22/08/2026 | `instagram.com/reel/DcV-e2mhS6r/` |
 
-> Las 4 no tienen campo `fecha` porque Instagram no expone la fecha de publicación sin iniciar sesión. Si se consiguen las fechas, agregar `"fecha": "AAAA-MM-DD"` a cada una y se muestran automáticamente en la tarjeta.
+> El campo `fecha` usa el formato `AAAA-MM-DD` y se muestra en la tarjeta como `DD/MM/AAAA`. Las fechas de publicación de los reels no se pueden leer desde Instagram sin iniciar sesión: se cargaron a mano.
 
 ### Notas
 
