@@ -11,6 +11,7 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 ### Cambios importantes
 - El sitio se publica **exclusivamente en Vercel**. Se eliminó toda la configuración de Firebase Hosting.
 - Las rutas inexistentes muestran la página `404.html` personalizada (en Firebase se rewritteaban a `index.html`).
+- **El proyecto se movió a la raíz del repositorio.** Antes estaba dentro de `globosondatecnica2/`; ahora `frontend/`, `backend/` y la documentación están en el nivel superior. Así la carpeta local de trabajo coincide con la raíz del repo y se puede trabajar con Source Control de VS Code sin carpetas intermedias.
 
 ### Archivos eliminados
 - `frontend/firebase.json` — configuración de hosting con rewrites.
@@ -18,6 +19,7 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 - `frontend/.agents/skills/firebase-*` y `frontend/.claude/skills/firebase-*` — 10 skills de Firebase no aplicables al proyecto.
 
 ### Archivos modificados
+- Todos los archivos del proyecto cambian de ruta (`globosondatecnica2/...` → raíz del repo).
 - `frontend/skills-lock.json` — solo se conserva la skill `xcode-project-setup`.
 - `frontend/.gitignore` — se quitan las entradas de cache y debug de Firebase (se mantiene `.vercel/`).
 - `GUIA_MANTENIMIENTO.md` — se actualizan las referencias a Firebase: el despliegue paso a ser solo Vercel y la URL de la API usa la ruta relativa `/api/datos`.
@@ -27,7 +29,7 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 - Nuevo `README.md` con instrucciones para levantar el sitio localmente y publicarlo en Vercel.
 
 ### Requisitos de despliegue
-- En el panel de Vercel, el **Root Directory** del proyecto debe ser `globosondatecnica2/frontend`.
+- En el panel de Vercel, el **Root Directory** del proyecto debe ser `frontend` (cambió desde `globosondatecnica2/frontend`).
 
 ---
 

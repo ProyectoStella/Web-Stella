@@ -910,21 +910,21 @@ El sitio se despliega en Vercel. Vercel sirve el contenido estático de `fronten
 
 ### Requisitos
 
-- El directorio raíz (Root Directory) debe ser **`globosondatecnica2/frontend`** (desde la raíz del repositorio).
+- El directorio raíz (Root Directory) debe ser **`frontend`** (desde la raíz del repositorio).
 - El archivo `frontend/vercel.json` contiene los headers de caché del sitio.
 - La función `api/datos.py` expone el endpoint `/api/datos` (misma respuesta JSON que el backend Flask local).
 
 ### Desplegar desde la consola de Vercel
 
 1. Importar el repositorio en https://vercel.com (New Project).
-2. Configurar **Root Directory → `globosondatecnica2/frontend`**.
+2. Configurar **Root Directory → `frontend`**.
 3. Framework Preset: **Other** (es un sitio estático).
 4. Deploy. La telemetría queda disponible en `https://<proyecto>.vercel.app/api/datos`.
 
 ### Desplegar con la CLI de Vercel
 
 ```bash
-cd globosondatecnica2/frontend
+cd frontend
 npx vercel --prod
 ```
 

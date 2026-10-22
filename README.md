@@ -35,7 +35,7 @@ El frontend **no requiere build ni `npm install`**. Es HTML/CSS/JS servible tal 
 
 ## 2. Estructura del repositorio
 
-El repositorio contiene el proyecto dentro de la carpeta `globosondatecnica2/`:
+El proyecto vive en la raíz del repositorio:
 
 ```
 .
@@ -48,44 +48,43 @@ El repositorio contiene el proyecto dentro de la carpeta `globosondatecnica2/`:
 ├── backend/
 │   └── app.py                  # API Flask para desarrollo local (/datos)
 │
-└── globosondatecnica2/         # EL SITIO
-    └── frontend/
-        ├── index.html          # Landing page
-        ├── 404.html            # Página de error
-        ├── vercel.json         # Headers de caché y config de despliegue
-        ├── robots.txt
-        ├── sitemap.xml
-        ├── api/
-        │   └── datos.py        # Serverless function de telemetría (/api/datos)
-        ├── pages/              # Páginas internas
-        │   ├── proyecto.html
-        │   ├── telemetria.html
-        │   ├── documentacion.html
-        │   ├── galeria.html
-        │   ├── noticias.html
-        │   ├── equipo.html
-        │   ├── patrocinadores.html
-        │   └── contacto.html
-        ├── css/
-        │   ├── base/           # reset, fondo espacial
-        │   ├── components/     # navbar, footer, breadcrumb, skeleton
-        │   └── pages/          # estilos por página
-        ├── js/
-        │   ├── utils/          # constants.js (API URL, nav), helpers.js, iconos.js
-        │   ├── components/     # navbar.js, footer.js, breadcrumb.js
-        │   └── pages/          # un JS por página
-        ├── assets/             # backgrounds, icons, images, logos, favicon
-        ├── data/               # JSON editables (contenido del sitio)
-        │   ├── config.json
-        │   ├── estado.json
-        │   ├── estadisticas.json
-        │   ├── proyecto.json
-        │   ├── equipo.json
-        │   ├── patrocinadores.json
-        │   ├── galeria.json
-        │   ├── documentos.json
-        │   └── noticias.json
-        └── documentos/         # Archivos descargables (docx, pdf)
+└── frontend/                   # EL SITIO (carpeta raíz en Vercel)
+    ├── index.html              # Landing page
+    ├── 404.html                # Página de error
+    ├── vercel.json             # Headers de caché y config de despliegue
+    ├── robots.txt
+    ├── sitemap.xml
+    ├── api/
+    │   └── datos.py            # Serverless function de telemetría (/api/datos)
+    ├── pages/                  # Páginas internas
+    │   ├── proyecto.html
+    │   ├── telemetria.html
+    │   ├── documentacion.html
+    │   ├── galeria.html
+    │   ├── noticias.html
+    │   ├── equipo.html
+    │   ├── patrocinadores.html
+    │   └── contacto.html
+    ├── css/
+    │   ├── base/               # reset, fondo espacial
+    │   ├── components/         # navbar, footer, breadcrumb, skeleton
+    │   └── pages/              # estilos por página
+    ├── js/
+    │   ├── utils/              # constants.js (API URL, nav), helpers.js, iconos.js
+    │   ├── components/         # navbar.js, footer.js, breadcrumb.js
+    │   └── pages/              # un JS por página
+    ├── assets/                 # backgrounds, icons, images, logos, favicon
+    ├── data/                   # JSON editables (contenido del sitio)
+    │   ├── config.json
+    │   ├── estado.json
+    │   ├── estadisticas.json
+    │   ├── proyecto.json
+    │   ├── equipo.json
+    │   ├── patrocinadores.json
+    │   ├── galeria.json
+    │   ├── documentos.json
+    │   └── noticias.json
+    └── documentos/             # Archivos descargables (docx, pdf)
 ```
 
 ---
@@ -111,7 +110,7 @@ python -m pip install flask
 
 ### 3.3 Levantar el frontend
 
-En la carpeta `globosondatecnica2/frontend/`:
+En la carpeta `frontend/`:
 
 ```bash
 python -m http.server 8000
@@ -131,7 +130,7 @@ npx serve .
 
 ```bash
 npm i -g vercel
-cd globosondatecnica2/frontend
+cd frontend
 vercel dev
 ```
 
@@ -197,27 +196,27 @@ El sitio es 100 % estático (más una serverless function), así que no hay buil
 
 | Setting | Valor |
 |---|---|
-| **Root Directory** | `globosondatecnica2/frontend` |
+| **Root Directory** | `frontend` |
 | **Framework Preset** | Other |
 | **Build Command** | *(dejar vacío)* |
 | **Output Directory** | *(dejar vacío)* |
 
-> Si el Root Directory no apunta a `globosondatecnica2/frontend`, Vercel no encuentra `index.html` y muestra 404 en todas las rutas.
+> Si el Root Directory no apunta a `frontend`, Vercel no encuentra `index.html` y muestra 404 en todas las rutas.
 
 ### 4.2 Deploy desde la CLI
 
 ```bash
 npm i -g vercel
-cd globosondatecnica2/frontend
+cd frontend
 vercel          # preview
 vercel --prod   # producción
 ```
 
-El primer `vercel` te pregunta por el directorio del proyecto: elegí `globosondatecnica2/frontend` como **Root Directory** y respondé `N` a todas las preguntas de build (dejá el build en blanco).
+El primer `vercel` te pregunta por el directorio del proyecto: elegí `frontend` como **Root Directory** y respondé `N` a todas las preguntas de build (dejá el build en blanco).
 
 ### 4.3 Deploy desde Git
 
-Conectá el repo en Vercel y configurá el Root Directory como `globosondatecnica2/frontend`. Cada push a `main` dispara un deploy automático.
+Conectá el repo en Vercel y configurá el Root Directory como `frontend`. Cada push a `main` dispara un deploy automático.
 
 ### 4.4 Caché
 
