@@ -22,11 +22,11 @@ Sitio institucional del proyecto educativo de globo estratosférico **STELLA** d
 | Parte | Tecnología |
 |---|---|
 | Frontend | HTML5, CSS3 y JavaScript vanilla (sin framework, sin build) |
-| Datos del sitio | Archivos JSON estáticos en `frontend/data/` |
+| Datos del sitio | Archivos JSON estáticos en `globosondatecnica2/frontend/data/` |
 | Gráficos | Chart.js (CDN) |
-| Telemetría en producción | Serverless function Python (`frontend/api/datos.py`) en Vercel |
-| Telemetría en desarrollo | Backend Flask (`backend/app.py`) |
-| Formulario de contacto | Google Apps Script (`email_contacto_web.gs`) |
+| Telemetría en producción | Serverless function Python (`globosondatecnica2/frontend/api/datos.py`) en Vercel |
+| Telemetría en desarrollo | Backend Flask (`globosondatecnica2/backend/app.py`) |
+| Formulario de contacto | Google Apps Script (`globosondatecnica2/email_contacto_web.gs`) |
 | Hosting | Vercel |
 
 El frontend **no requiere build ni `npm install`**. Es HTML/CSS/JS servible tal cual.
@@ -35,56 +35,59 @@ El frontend **no requiere build ni `npm install`**. Es HTML/CSS/JS servible tal 
 
 ## 2. Estructura del repositorio
 
-El proyecto vive en la raíz del repositorio:
+El proyecto vive dentro de la carpeta `globosondatecnica2/`, que es la **carpeta raíz en Vercel**:
 
 ```
 .
-├── README.md                   # Este archivo
-├── CHANGELOG.md                # Historial de versiones
-├── GUIA_MANTENIMIENTO.md       # Guía para editar contenido sin tocar código
-├── TODO.md                     # Lista de tareas pendientes
-├── email_contacto_web.gs       # Google Apps Script del formulario de contacto
-│
-├── backend/
-│   └── app.py                  # API Flask para desarrollo local (/datos)
-│
-└── frontend/                   # EL SITIO (carpeta raíz en Vercel)
-    ├── index.html              # Landing page
-    ├── 404.html                # Página de error
-    ├── vercel.json             # Headers de caché y config de despliegue
-    ├── robots.txt
-    ├── sitemap.xml
-    ├── api/
-    │   └── datos.py            # Serverless function de telemetría (/api/datos)
-    ├── pages/                  # Páginas internas
-    │   ├── proyecto.html
-    │   ├── telemetria.html
-    │   ├── documentacion.html
-    │   ├── galeria.html
-    │   ├── noticias.html
-    │   ├── equipo.html
-    │   ├── patrocinadores.html
-    │   └── contacto.html
-    ├── css/
-    │   ├── base/               # reset, fondo espacial
-    │   ├── components/         # navbar, footer, breadcrumb, skeleton
-    │   └── pages/              # estilos por página
-    ├── js/
-    │   ├── utils/              # constants.js (API URL, nav), helpers.js, iconos.js
-    │   ├── components/         # navbar.js, footer.js, breadcrumb.js
-    │   └── pages/              # un JS por página
-    ├── assets/                 # backgrounds, icons, images, logos, favicon
-    ├── data/                   # JSON editables (contenido del sitio)
-    │   ├── config.json
-    │   ├── estado.json
-    │   ├── estadisticas.json
-    │   ├── proyecto.json
-    │   ├── equipo.json
-    │   ├── patrocinadores.json
-    │   ├── galeria.json
-    │   ├── documentos.json
-    │   └── noticias.json
-    └── documentos/             # Archivos descargables (docx, pdf)
+└── globosondatecnica2/
+    ├── README.md                   # Este archivo
+    ├── CHANGELOG.md                # Historial de versiones
+    ├── GUIA_MANTENIMIENTO.md       # Guía para editar contenido sin tocar código
+    ├── TODO.md                     # Lista de tareas pendientes
+    ├── email_contacto_web.gs       # Google Apps Script del formulario de contacto
+    │
+    ├── backend/
+    │   └── app.py                  # API Flask para desarrollo local (/datos)
+    │
+    └── frontend/                   # EL SITIO (carpeta raíz en Vercel)
+        ├── index.html              # Landing page
+        ├── 404.html                # Página de error
+        ├── vercel.json             # Headers de caché y config de despliegue
+        ├── robots.txt
+        ├── sitemap.xml
+        ├── api/
+        │   └── datos.py            # Serverless function de telemetría (/api/datos)
+        ├── pages/                  # Páginas internas
+        │   ├── proyecto.html
+        │   ├── telemetria.html
+        │   ├── documentacion.html
+        │   ├── galeria.html
+        │   ├── noticias.html
+        │   ├── entrevistas.html
+        │   ├── equipo.html
+        │   ├── patrocinadores.html
+        │   └── contacto.html
+        ├── css/
+        │   ├── base/               # reset, fondo espacial
+        │   ├── components/         # navbar, footer, breadcrumb, skeleton
+        │   └── pages/              # estilos por página
+        ├── js/
+        │   ├── utils/              # constants.js (API URL, nav), helpers.js, iconos.js
+        │   ├── components/         # navbar.js, footer.js, breadcrumb.js
+        │   └── pages/              # un JS por página
+        ├── assets/                 # backgrounds, icons, images, logos, favicon
+        ├── data/                   # JSON editables (contenido del sitio)
+        │   ├── config.json
+        │   ├── estado.json
+        │   ├── estadisticas.json
+        │   ├── proyecto.json
+        │   ├── equipo.json
+        │   ├── patrocinadores.json
+        │   ├── galeria.json
+        │   ├── documentos.json
+        │   ├── noticias.json
+        │   └── entrevistas.json
+        └── documentos/             # Archivos descargables (docx, pdf)
 ```
 
 ---
@@ -110,7 +113,7 @@ python -m pip install flask
 
 ### 3.3 Levantar el frontend
 
-En la carpeta `frontend/`:
+En la carpeta `globosondatecnica2/frontend/`:
 
 ```bash
 python -m http.server 8000
@@ -130,13 +133,13 @@ npx serve .
 
 ```bash
 npm i -g vercel
-cd frontend
+cd globosondatecnica2/frontend
 vercel dev
 ```
 
 La telemetría queda en <http://localhost:3000/api/datos>.
 
-**Opción B — con Flask.** En la carpeta `backend/`:
+**Opción B — con Flask.** En la carpeta `globosondatecnica2/backend/`:
 
 ```bash
 python app.py
@@ -156,7 +159,7 @@ Respuesta esperada:
 
 Los valores son **simulados y aleatorios** (temperatura de -50 a 30 °C, presión de 100 a 1000 hPa).
 
-> **Importante:** con Flask local hay que apuntar el frontend a esa URL. Editá `frontend/data/config.json` → `"api_url"` y `frontend/js/utils/constants.js` → `API_URL`, y poné `http://127.0.0.1:5000/datos` en ambos. Recordá devolverlos a `/api/datos` antes de commitear.
+> **Importante:** con Flask local hay que apuntar el frontend a esa URL. Editá `globosondatecnica2/frontend/data/config.json` → `"api_url"` y `globosondatecnica2/frontend/js/utils/constants.js` → `API_URL`, y poné `http://127.0.0.1:5000/datos` en ambos. Recordá devolverlos a `/api/datos` antes de commitear.
 
 ### 3.5 Abrir el sitio
 
@@ -166,6 +169,7 @@ Los valores son **simulados y aleatorios** (temperatura de -50 a 30 °C, presió
 | <http://localhost:8000/pages/proyecto.html> | El proyecto |
 | <http://localhost:8000/pages/noticias.html> | Noticias |
 | <http://localhost:8000/pages/documentacion.html> | Documentación |
+| <http://localhost:8000/pages/entrevistas.html> | Entrevistas |
 | <http://localhost:8000/pages/telemetria.html> | Telemetría (necesita la API) |
 
 ### 3.6 Troubleshooting
@@ -177,10 +181,10 @@ El sitio lee los JSON con `fetch()`. Nunca abras `index.html` con doble clic: ba
 Levantá la API (Flask en el 5000 o `vercel dev`) y verificá que `api_url` en `config.json` y `API_URL` en `constants.js` apunten al endpoint correcto.
 
 **Los cambios en CSS/JS no se ven**
-El navegador cachea los estáticos. Recargá con `Ctrl+F5` (forzar recarga). Los scripts ya incluyen un parámetro de versión (`?v=18`); si cambiás la versión en el HTML, se invalida la caché.
+El navegador cachea los estáticos. Recargá con `Ctrl+F5` (forzar recarga). Los scripts ya incluyen un parámetro de versión (`?v=19`); si cambiás la versión en el HTML, se invalida la caché.
 
 **Puerto 8000 u 5000 ocupado**
-Cambialo: `python -m http.server 8080` acepta el puerto como argumento. Para Flask, editá `app.run(...)` en `backend/app.py` (lee `PORT` del entorno) y actualizá `api_url`.
+Cambialo: `python -m http.server 8080` acepta el puerto como argumento. Para Flask, editá `app.run(...)` en `globosondatecnica2/backend/app.py` (lee `PORT` del entorno) y actualizá `api_url`.
 
 ### 3.7 Detener los servidores
 
@@ -196,31 +200,31 @@ El sitio es 100 % estático (más una serverless function), así que no hay buil
 
 | Setting | Valor |
 |---|---|
-| **Root Directory** | `frontend` |
+| **Root Directory** | `globosondatecnica2/frontend` |
 | **Framework Preset** | Other |
 | **Build Command** | *(dejar vacío)* |
 | **Output Directory** | *(dejar vacío)* |
 
-> Si el Root Directory no apunta a `frontend`, Vercel no encuentra `index.html` y muestra 404 en todas las rutas.
+> Si el Root Directory no apunta a `globosondatecnica2/frontend`, Vercel no encuentra `index.html` y muestra 404 en todas las rutas.
 
 ### 4.2 Deploy desde la CLI
 
 ```bash
 npm i -g vercel
-cd frontend
+cd globosondatecnica2/frontend
 vercel          # preview
 vercel --prod   # producción
 ```
 
-El primer `vercel` te pregunta por el directorio del proyecto: elegí `frontend` como **Root Directory** y respondé `N` a todas las preguntas de build (dejá el build en blanco).
+El primer `vercel` te pregunta por el directorio del proyecto: elegí `globosondatecnica2/frontend` como **Root Directory** y respondé `N` a todas las preguntas de build (dejá el build en blanco).
 
 ### 4.3 Deploy desde Git
 
-Conectá el repo en Vercel y configurá el Root Directory como `frontend`. Cada push a `main` dispara un deploy automático.
+Conectá el repo en Vercel y configurá el Root Directory como `globosondatecnica2/frontend`. Cada push a `main` dispara un deploy automático.
 
 ### 4.4 Caché
 
-`frontend/vercel.json` define los headers:
+`globosondatecnica2/frontend/vercel.json` define los headers:
 
 | Ruta | Cache-Control |
 |---|---|
@@ -239,13 +243,13 @@ Si tocás un JSON o un HTML y no se actualiza, es caché del navegador: recargá
 
 ### 4.6 404
 
-Vercel sirve `frontend/404.html` automáticamente para rutas inexistentes. Ya está personalizado con el estilo del sitio.
+Vercel sirve `globosondatecnica2/frontend/404.html` automáticamente para rutas inexistentes. Ya está personalizado con el estilo del sitio.
 
 ---
 
 ## 5. Dónde editar el contenido
 
-La mayor parte del contenido del sitio se edita **sin tocar código**, en archivos JSON de `frontend/data/`:
+La mayor parte del contenido del sitio se edita **sin tocar código**, en archivos JSON de `globosondatecnica2/frontend/data/`:
 
 | Archivo | Qué controla |
 |---|---|
@@ -257,7 +261,9 @@ La mayor parte del contenido del sitio se edita **sin tocar código**, en archiv
 | `patrocinadores.json` | Patrocinadores |
 | `galeria.json` | Imágenes de la galería |
 | `documentos.json` | Documentos descargables |
-| `noticias.json` | Novedades de la página Noticias |
+| 
+oticias.json | Novedades de la página Noticias |
+| entrevistas.json | Entrevistas y notas de prensa (página Entrevistas) |
 
 `GUIA_MANTENIMIENTO.md` tiene el detalle paso a paso de cada uno.
 

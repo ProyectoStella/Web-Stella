@@ -31,8 +31,9 @@ Manual para administrar y actualizar el sitio web del proyecto STELLA sin necesi
 ## 1. Estructura del proyecto
 
 ```
-email_contacto_web.gs                  # Script de Google Apps Script para enviar el formulario de contacto por Gmail
-frontend/
+globosondatecnica2/                    # Carpeta raíz del proyecto en Vercel
+├── email_contacto_web.gs                  # Script de Google Apps Script para enviar el formulario de contacto por Gmail
+├── frontend/
 ├── index.html                          # Landing page institucional con 10 secciones dinámicas
 ├── 404.html                            # Página de error personalizada
 ├── vercel.json                         # Configuración de despliegue en Vercel (headers de caché)
@@ -45,6 +46,7 @@ frontend/
 │   ├── documentacion.html              # Biblioteca técnica con estadísticas, filtros, destacados y visor PDF
 │   ├── galeria.html                    # Galería de imágenes con buscador y lightbox
 │   ├── noticias.html                   # Novedades y actualizaciones del proyecto
+│   ├── entrevistas.html                # Entrevistas y notas de prensa (portada + grid con links)
 │   ├── equipo.html                     # Integrantes del equipo
 │   ├── patrocinadores.html             # Patrocinadores con datos dinámicos
 │   └── contacto.html                   # Contacto institucional con formulario
@@ -64,10 +66,11 @@ frontend/
     │       ├── telemetria.css              # Cards de telemetría y contenedores de gráficos
 │       ├── documentacion.css           # Estadísticas, filtros, tarjetas, modal PDF, responsive
 │       ├── galeria.css                 # Grid, lightbox, filtros y buscador
-    │       ├── equipo.css                  # Cards de integrantes
-    │       ├── patrocinadores.css          # Cards de patrocinadores
-    │       ├── contacto.css                # Formulario y tarjetas de contacto
-    │       └── noticias.css                # Grid de novedades
+│       ├── entrevistas.css             # Portada y tarjetas de entrevistas
+│       ├── equipo.css                  # Cards de integrantes
+│       ├── patrocinadores.css          # Cards de patrocinadores
+│       ├── contacto.css                # Formulario y tarjetas de contacto
+│       └── noticias.css                # Grid de novedades
 │
     ├── js/
     │   ├── utils/                          # Utilidades compartidas
@@ -83,12 +86,13 @@ frontend/
     │       ├── graficos.js                 # Gráficos Chart.js en tiempo real
 │       ├── documentacion.js            # Carga documentos, estadísticas, filtros, ordenamiento, destacados, PDF modal
 │       ├── galeria.js                  # Galería, filtros, búsqueda, lightbox
-    │       ├── equipo.js                   # Carga integrantes desde JSON
-    │       ├── patrocinadores.js           # Carga patrocinadores desde JSON
-    │       ├── contacto.js                 # Renderiza página de contacto desde config.json
-    │       ├── noticias.js                 # Carga y renderiza las novedades
-    │       ├── proyecto.js                 # Carga secciones del proyecto desde JSON
-    │       └── inicio.js                   # Landing page: carga 8 JSONs (incluye config), renderiza 11 secciones
+│       ├── equipo.js                   # Carga integrantes desde JSON
+│       ├── patrocinadores.js           # Carga patrocinadores desde JSON
+│       ├── contacto.js                 # Renderiza página de contacto desde config.json
+│       ├── noticias.js                 # Carga y renderiza las novedades
+│       ├── entrevistas.js              # Carga y renderiza las entrevistas (cards con link externo)
+│       ├── proyecto.js                 # Carga secciones del proyecto desde JSON
+│       └── inicio.js                   # Landing page: carga 9 JSONs (incluye config), renderiza 12 secciones
 │
 ├── assets/
 │   ├── backgrounds/
@@ -101,6 +105,11 @@ frontend/
 │   │   └── tiktok.svg
 │   └── images/                         # Imágenes del sitio
 │       ├── og-portada.png              # Imagen Open Graph para compartir en redes
+│       ├── entrevistas/                 # Portadas de las entrevistas (png)
+│       │   ├── Entrevista - Vamos con vos.png
+│       │   ├── Entrevista - En accion olavarria.png
+│       │   ├── Entrevista - Central de noticias olavarria.png
+│       │   └── Entrevista - Canal uno.png
 │       └── galeria/                    # Imágenes de la galería (jpeg/jpg)
 │           ├── Feria1.jpg, Feria2.jpg, Feria3.jpg, Feria4.jpg
 │           ├── hardware1.jpg, hardware2.jpeg
@@ -114,6 +123,7 @@ frontend/
 │   ├── documentos.json                 # Lista de documentos
 │   ├── galeria.json                    # Lista de imágenes
 │   ├── noticias.json                   # Lista de novedades
+│   ├── entrevistas.json                # Lista de entrevistas y notas de prensa
 │   ├── patrocinadores.json             # Lista de patrocinadores
 │   ├── estado.json                     # Estado actual del proyecto
 │   ├── proyecto.json                   # Contenido de la página Proyecto
@@ -141,11 +151,11 @@ frontend/
 
 ## 2. Configuración general del sitio (config.json)
 
-El archivo `data/config.json` centraliza toda la información institucional del proyecto. Es la fuente oficial para el hero, el footer, la página de contacto, el copyright y la versión del sitio.
+El archivo `globosondatecnica2/frontend/data/config.json` centraliza toda la información institucional del proyecto. Es la fuente oficial para el hero, el footer, la página de contacto, el copyright y la versión del sitio.
 
 ### Archivo a modificar
 
-`data/config.json`
+`globosondatecnica2/frontend/data/config.json`
 
 ### Estructura del JSON
 
@@ -200,22 +210,22 @@ El archivo `data/config.json` centraliza toda la información institucional del 
 }
 ```
 
-Cada red necesita una `url` (puede estar vacía si no se usa) y un `icono` (ruta local en `assets/icons/`). Solo las redes con `url` no vacía se muestran en el footer y en la página de contacto. Para agregar una nueva red, agregar una nueva clave al objeto con su `url` e `icono`. Para nuevos iconos, colocar un SVG en `assets/icons/` y referenciarlo (los íconos externos por CDN ya no se usan).
+Cada red necesita una `url` (puede estar vacía si no se usa) y un `icono` (ruta local en `globosondatecnica2/frontend/assets/icons/`). Solo las redes con `url` no vacía se muestran en el footer y en la página de contacto. Para agregar una nueva red, agregar una nueva clave al objeto con su `url` e `icono`. Para nuevos iconos, colocar un SVG en `globosondatecnica2/frontend/assets/icons/` y referenciarlo (los íconos externos por CDN ya no se usan).
 
 ### Cómo modificar
 
-1. Abrir `data/config.json`.
+1. Abrir `globosondatecnica2/frontend/data/config.json`.
 2. Cambiar el valor del campo deseado.
 3. Guardar el archivo.
 4. Recargar cualquier página del sitio para ver los cambios reflejados.
 
 ### Notas importantes
 
-- El footer, hero, contacto y versión leen automáticamente desde `data/config.json`. No es necesario modificar HTML ni JavaScript.
+- El footer, hero, contacto y versión leen automáticamente desde `globosondatecnica2/frontend/data/config.json`. No es necesario modificar HTML ni JavaScript.
 - `telefono` y `direccion` pueden dejarse como `""` si no están disponibles; la página de contacto los omitirá automáticamente.
 - La marca `{year}` en `copyright` se reemplaza automáticamente por el año actual.
 - Para cambiar la versión del sitio, actualizar `version_actual`. El valor puede mostrarse en el futuro sin modificar código.
-- Las secciones narrativas de `data/proyecto.json` (como "¿Qué es STELLA?") mencionan información institucional dentro del texto; esos datos deben actualizarse tanto en `config.json` como en `proyecto.json` si cambian, porque forman parte del contenido textual de la página.
+- Las secciones narrativas de `globosondatecnica2/frontend/data/proyecto.json` (como "¿Qué es STELLA?") mencionan información institucional dentro del texto; esos datos deben actualizarse tanto en `config.json` como en `proyecto.json` si cambian, porque forman parte del contenido textual de la página.
 
 ---
 
@@ -223,7 +233,7 @@ Cada red necesita una `url` (puede estar vacía si no se usa) y un `icono` (ruta
 
 ### Archivo a modificar
 
-`data/equipo.json`
+`globosondatecnica2/frontend/data/equipo.json`
 
 ### Estructura del JSON
 
@@ -244,11 +254,11 @@ Cada integrante es un objeto con dos campos:
 
 ### Pasos
 
-1. Abrir `data/equipo.json`.
+1. Abrir `globosondatecnica2/frontend/data/equipo.json`.
 2. Agregar una nueva línea al final del array (después del último integrante, antes de `]`).
 3. Si no es el último, agregar una coma al final del objeto anterior.
 4. Guardar el archivo.
-5. La página de equipo (`pages/equipo.html`) mostrará automáticamente la nueva tarjeta.
+5. La página de equipo (`globosondatecnica2/frontend/pages/equipo.html`) mostrará automáticamente la nueva tarjeta.
 
 ### Campos disponibles
 
@@ -259,7 +269,7 @@ Cada integrante es un objeto con dos campos:
 
 ### Nota
 
-Actualmente no se usa fotografía de perfil. Cada tarjeta muestra la inicial del nombre. Si en el futuro se agregan fotos, deben colocarse en `assets/images/` y agregarse el campo `"foto": "ruta/de/la/imagen.jpg"` en el JSON.
+Actualmente no se usa fotografía de perfil. Cada tarjeta muestra la inicial del nombre. Si en el futuro se agregan fotos, deben colocarse en `globosondatecnica2/frontend/assets/images/` y agregarse el campo `"foto": "ruta/de/la/imagen.jpg"` en el JSON.
 
 ---
 
@@ -281,7 +291,7 @@ Colocar el archivo en la carpeta correspondiente según su tipo:
 
 ### Archivo a modificar
 
-`data/documentos.json`
+`globosondatecnica2/frontend/data/documentos.json`
 
 ### Estructura del JSON (v3.5.0)
 
@@ -335,14 +345,14 @@ Asignar `"destacado": true` en la entrada del JSON. Aparecerá automáticamente 
 
 ### Cómo agregar una portada
 
-1. Crear una imagen en `assets/images/documentos/` (puede ser SVG, PNG o JPG, 300×420 recomendado).
+1. Crear una imagen en `globosondatecnica2/frontend/assets/images/documentos/` (puede ser SVG, PNG o JPG, 300×420 recomendado).
 2. Agregar el campo `"portada": "assets/images/documentos/mi-portada.svg"` en la entrada del JSON.
 3. Si no se especifica portada, se usa `default-portada.svg`.
 
 ### Pasos
 
 1. Colocar el archivo en la carpeta correspondiente dentro de `documentos/`.
-2. Abrir `data/documentos.json`.
+2. Abrir `globosondatecnica2/frontend/data/documentos.json`.
 3. Agregar un nuevo objeto al array con todos los campos (id correlativo al último).
 4. La página de documentación mostrará la nueva tarjeta automáticamente.
 
@@ -356,11 +366,11 @@ Si se usa la estructura anterior (con `ruta` en lugar de `archivo`), el sistema 
 
 ### Carpeta para las imágenes
 
-`assets/images/galeria/`
+`globosondatecnica2/frontend/assets/images/galeria/`
 
 ### Archivo a modificar
 
-`data/galeria.json`
+`globosondatecnica2/frontend/data/galeria.json`
 
 ### Estructura del JSON (v3.4.0)
 
@@ -400,8 +410,8 @@ Las categorías no están limitadas a esta lista. Si se escribe una nueva, apare
 
 ### Pasos
 
-1. Copiar la imagen a `assets/images/galeria/`.
-2. Abrir `data/galeria.json`.
+1. Copiar la imagen a `globosondatecnica2/frontend/assets/images/galeria/`.
+2. Abrir `globosondatecnica2/frontend/data/galeria.json`.
 3. Agregar un nuevo objeto al array con todos los campos.
 4. Asignar un `id` correlativo al último existente.
 5. La galería y la página de inicio mostrarán la imagen automáticamente.
@@ -411,7 +421,7 @@ Las categorías no están limitadas a esta lista. Si se escribe una nueva, apare
 - Usar imágenes en formato JPG, PNG, WebP o SVG.
 - Escalar las imágenes a un tamaño razonable (máximo 1920 px de ancho) para evitar carga lenta.
 - Mantener nombres de archivo sin espacios (usar guiones).
-- Para crear un placeholder SVG, copiar uno existente de `assets/images/galeria/` y modificar el texto.
+- Para crear un placeholder SVG, copiar uno existente de `globosondatecnica2/frontend/assets/images/galeria/` y modificar el texto.
 
 ---
 
@@ -419,7 +429,7 @@ Las categorías no están limitadas a esta lista. Si se escribe una nueva, apare
 
 ### Archivo a modificar
 
-`data/estadisticas.json`
+`globosondatecnica2/frontend/data/estadisticas.json`
 
 ### Significado de cada campo
 
@@ -434,11 +444,11 @@ Las categorías no están limitadas a esta lista. Si se escribe una nueva, apare
 }
 ```
 
-> **Nota:** la tarjeta "Documentos publicados" incluye `"origen": "documentos"`, así su valor se calcula solo al contar los elementos de `data/documentos.json`. No hace falta editar `valor` manualmente; al agregar o quitar documentos, la tarjeta se actualiza sola. Si `documentos.json` no carga, se muestra el `valor` de respaldo.
+> **Nota:** la tarjeta "Documentos publicados" incluye `"origen": "documentos"`, así su valor se calcula solo al contar los elementos de `globosondatecnica2/frontend/data/documentos.json`. No hace falta editar `valor` manualmente; al agregar o quitar documentos, la tarjeta se actualiza sola. Si `documentos.json` no carga, se muestra el `valor` de respaldo.
 
 ### Cómo agregar una nueva tarjeta
 
-1. Abrir `data/estadisticas.json`.
+1. Abrir `globosondatecnica2/frontend/data/estadisticas.json`.
 2. Agregar un nuevo objeto al array con todos los campos.
 3. La página principal mostrará la nueva tarjeta automáticamente con la animación de contador.
 
@@ -460,7 +470,7 @@ Las categorías no están limitadas a esta lista. Si se escribe una nueva, apare
 
 ### Archivo a modificar
 
-`data/config.json` (campo `redes_sociales`)
+`globosondatecnica2/frontend/data/config.json` (campo `redes_sociales`)
 
 ### Estructura
 
@@ -473,11 +483,11 @@ Las categorías no están limitadas a esta lista. Si se escribe una nueva, apare
 
 Cada red tiene dos campos:
 - `url`: enlace a la red social. Si está vacío (`""`), no se muestra.
-- `icono`: ruta local del ícono dentro de `assets/icons/` (formato SVG).
+- `icono`: ruta local del ícono dentro de `globosondatecnica2/frontend/assets/icons/` (formato SVG).
 
 ### Pasos
 
-1. Abrir `data/config.json`.
+1. Abrir `globosondatecnica2/frontend/data/config.json`.
 2. Modificar la `url` y/o `icono` de la red que corresponda.
 3. Para agregar una nueva red, agregar una nueva clave dentro de `redes_sociales` con su `url` e `icono`.
 
@@ -487,7 +497,7 @@ Cada red tiene dos campos:
 
 ### Archivo a modificar
 
-`data/config.json` (campo `api_url`) y, como respaldo, `js/utils/constants.js` (constante `API_URL`).
+`globosondatecnica2/frontend/data/config.json` (campo `api_url`) y, como respaldo, `globosondatecnica2/frontend/js/utils/constants.js` (constante `API_URL`).
 
 ### Valor por defecto
 
@@ -495,7 +505,7 @@ Cada red tiene dos campos:
 API_URL: '/api/datos'
 ```
 
-- En **Vercel**, la URL es relativa `/api/datos` y apunta a la serverless function `api/datos.py`.
+- En **Vercel**, la URL es relativa `/api/datos` y apunta a la serverless function `globosondatecnica2/frontend/api/datos.py`.
 - Para **probar localmente con Flask**, cambiar el valor por `http://127.0.0.1:5000/datos` (tanto en `config.json` como en `constants.js`).
 
 > Nota: la página de telemetría lee primero `api_url` de `config.json`; si ese campo falta, usa `App.constants.API_URL` como respaldo. Ambos deben apuntar al mismo endpoint.
@@ -506,11 +516,11 @@ API_URL: '/api/datos'
 
 ### Archivo a modificar
 
-`data/patrocinadores.json`
+`globosondatecnica2/frontend/data/patrocinadores.json`
 
 ### Carpeta para el logo
 
-`assets/logos/`
+`globosondatecnica2/frontend/assets/logos/`
 
 ### Estructura del JSON
 
@@ -520,25 +530,25 @@ Cada patrocinador es un objeto con los siguientes campos:
 |--------------|-------------|------------------------------------------------------|
 | `nombre`     | Sí          | Nombre del patrocinador                              |
 | `descripcion`| Sí          | Breve descripción de su vínculo con el proyecto      |
-| `logo`       | No          | Ruta del archivo de logo dentro de `assets/logos/`. Si está vacío (`""`) se muestra un logo por defecto |
+| `logo`       | No          | Ruta del archivo de logo dentro de `globosondatecnica2/frontend/assets/logos/`. Si está vacío (`""`) se muestra un logo por defecto |
 | `sitio_web`  | No          | URL completa del sitio web. Si está vacío (`""`) no se muestra el botón |
 | `categoria`  | No          | Categoría para agrupar (ej: "Empresas", "Instituciones Educativas"). Si no se especifica, se agrupa en "Otros" |
 
 ### Pasos
 
-1. Colocar el archivo del logo en `assets/logos/`. Formatos recomendados: SVG, PNG. Tamaño sugerido: 200×100 px o proporción similar.
-2. Abrir `data/patrocinadores.json`.
+1. Colocar el archivo del logo en `globosondatecnica2/frontend/assets/logos/`. Formatos recomendados: SVG, PNG. Tamaño sugerido: 200×100 px o proporción similar.
+2. Abrir `globosondatecnica2/frontend/data/patrocinadores.json`.
 3. Agregar un nuevo objeto al array (respetando las comas entre objetos).
 4. Si el patrocinador no tiene logo, usar `"logo": ""`.
 5. Si el patrocinador no tiene sitio web, usar `"sitio_web": ""`.
 6. Guardar el archivo.
-7. La página de patrocinadores (`pages/patrocinadores.html`) mostrará automáticamente la nueva tarjeta, agrupada en su categoría.
+7. La página de patrocinadores (`globosondatecnica2/frontend/pages/patrocinadores.html`) mostrará automáticamente la nueva tarjeta, agrupada en su categoría.
 
 ### Notas
 
 - Los patrocinadores se agrupan automáticamente por categoría en el orden en que aparecen en el JSON.
 - Si no hay patrocinadores en el JSON, se muestra un mensaje indicándolo.
-- Si un logo no se encuentra en la ruta especificada, se muestra automáticamente el logo por defecto (`assets/logos/default-logo.svg`).
+- Si un logo no se encuentra en la ruta especificada, se muestra automáticamente el logo por defecto (`globosondatecnica2/frontend/assets/logos/default-logo.svg`).
 
 ---
 
@@ -546,7 +556,7 @@ Cada patrocinador es un objeto con los siguientes campos:
 
 ### Paso 1: Crear el HTML
 
-Crear un archivo en `pages/` con el nombre deseado (ej: `pages/contacto.html`).
+Crear un archivo en `globosondatecnica2/frontend/pages/` con el nombre deseado (ej: `globosondatecnica2/frontend/pages/contacto.html`).
 
 Estructura base:
 
@@ -606,18 +616,18 @@ Estructura base:
 
 ### Paso 2: Crear el CSS (si es necesario)
 
-Crear un archivo en `css/pages/nombre-de-la-pagina.css` con los estilos específicos.
-No incluir estilos que ya existen en `css/base/` o `css/components/`.
+Crear un archivo en `globosondatecnica2/frontend/css/pages/nombre-de-la-pagina.css` con los estilos específicos.
+No incluir estilos que ya existen en `globosondatecnica2/frontend/css/base/` o `globosondatecnica2/frontend/css/components/`.
 
 ### Paso 3: Crear el JS (si es necesario)
 
-- Si la página carga datos desde JSON, crear un archivo en `js/pages/`.
+- Si la página carga datos desde JSON, crear un archivo en `globosondatecnica2/frontend/js/pages/`.
 - Usar `App.utils.dataUrl('data/archivo.json')` para obtener la ruta correcta del JSON.
-- Si es lógica compartida, considerar colocarla en `js/components/`.
+- Si es lógica compartida, considerar colocarla en `globosondatecnica2/frontend/js/components/`.
 
 ### Paso 4: Agregar la página al menú de navegación
 
-1. Abrir `js/utils/constants.js`.
+1. Abrir `globosondatecnica2/frontend/js/utils/constants.js`.
 2. Agregar una entrada en el array `NAV_PAGES`:
 
 ```js
@@ -632,16 +642,16 @@ El navbar se actualizará automáticamente en todas las páginas.
 
 ### Imagen de fondo
 
-- **Ubicación:** `assets/backgrounds/fototierra.jpg`
+- **Ubicación:** `globosondatecnica2/frontend/assets/backgrounds/fototierra.jpg`
 - **Tamaño recomendado:** 1920×1080 px o superior, en formato JPG.
-- **Para reemplazar:** colocar el nuevo archivo con el mismo nombre y la misma ruta, o actualizar la referencia en `css/base/background.css`.
+- **Para reemplazar:** colocar el nuevo archivo con el mismo nombre y la misma ruta, o actualizar la referencia en `globosondatecnica2/frontend/css/base/background.css`.
 
 ### Imágenes de la galería
 
-- **Ubicación:** `assets/images/galeria/`
+- **Ubicación:** `globosondatecnica2/frontend/assets/images/galeria/`
 - **Formatos aceptados:** JPG, PNG, WebP, SVG.
 - **Tamaño recomendado:** Máximo 1920 px de ancho. Imágenes muy grandes ralentizan la carga.
-- **Para reemplazar:** colocar el nuevo archivo y actualizar la `ruta` en `data/galeria.json`.
+- **Para reemplazar:** colocar el nuevo archivo y actualizar la `ruta` en `globosondatecnica2/frontend/data/galeria.json`.
 
 ---
 
@@ -649,42 +659,42 @@ El navbar se actualizará automáticamente en todas las páginas.
 
 | Carpeta       | Propósito                                                   |
 |---------------|-------------------------------------------------------------|
-| `pages/`      | Archivos HTML de cada página del sitio                      |
-| `css/base/`   | Estilos fundamentales (reset, fondo espacial, tipografía)   |
-| `css/components/` | Estilos de componentes reutilizables (navbar, footer, secciones) |
-| `css/pages/`  | Estilos específicos de cada página                          |
-| `js/utils/`   | Constantes y funciones auxiliares compartidas               |
-| `js/components/` | Scripts que generan componentes reutilizables (navbar, footer) |
-| `js/pages/`   | Lógica específica de cada página                            |
-| `assets/`     | Recursos estáticos (imágenes, fondos, iconos, fuentes)      |
-| `data/`       | Archivos JSON editables (config, equipo, documentos, galería, patrocinadores, proyecto, estado, estadísticas) |
+| `globosondatecnica2/frontend/pages/`      | Archivos HTML de cada página del sitio                      |
+| `globosondatecnica2/frontend/css/base/`   | Estilos fundamentales (reset, fondo espacial, tipografía)   |
+| `globosondatecnica2/frontend/css/components/` | Estilos de componentes reutilizables (navbar, footer, secciones) |
+| `globosondatecnica2/frontend/css/pages/`  | Estilos específicos de cada página                          |
+| `globosondatecnica2/frontend/js/utils/`   | Constantes y funciones auxiliares compartidas               |
+| `globosondatecnica2/frontend/js/components/` | Scripts que generan componentes reutilizables (navbar, footer) |
+| `globosondatecnica2/frontend/js/pages/`   | Lógica específica de cada página                            |
+| `globosondatecnica2/frontend/assets/`     | Recursos estáticos (imágenes, fondos, iconos, fuentes)      |
+| `globosondatecnica2/frontend/data/`       | Archivos JSON editables (config, equipo, documentos, galería, patrocinadores, proyecto, estado, estadísticas) |
 | `documentos/` | PDFs descargables (informes, carpetas de campo)             |
 
 ---
 
 ## 13. Buenas prácticas
 
-- **No escribir datos directamente en el HTML** si existe un archivo JSON para ello. Usar siempre `data/`.
+- **No escribir datos directamente en el HTML** si existe un archivo JSON para ello. Usar siempre `globosondatecnica2/frontend/data/`.
 - **Mantener separados estilos, lógica y contenido:** CSS solo para estilos, JS solo para lógica, JSON para datos, HTML para estructura.
 - **Reutilizar componentes existentes:** navbar, footer, `page-section` y `subtitle` están disponibles globalmente.
-- **No duplicar código:** si una función o estilo se repite, moverlo a `js/utils/` o `css/components/`.
+- **No duplicar código:** si una función o estilo se repite, moverlo a `globosondatecnica2/frontend/js/utils/` o `globosondatecnica2/frontend/css/components/`.
 - **Usar nombres descriptivos** para archivos y carpetas (ej: `galeria.js`, no `script3.js`).
 - **Mantener la organización actual:** no mezclar archivos de distintas categorías en la misma carpeta.
-- **Rutas relativas desde `pages/`:** las páginas dentro de `pages/` deben usar `../` para referirse a CSS, JS, datos y assets.
+- **Rutas relativas desde `globosondatecnica2/frontend/pages/`:** las páginas dentro de `globosondatecnica2/frontend/pages/` deben usar `../` para referirse a CSS, JS, datos y assets.
 - **Archivos JSON:** mantener el formato válido. Después de la última entrada no debe haber coma. Usar un validador JSON si es necesario.
 - **Probar los cambios:** después de modificar un JSON, recargar la página para verificar que los datos se muestren correctamente.
-- **No modificar el endpoint de telemetría** (`api/datos.py` en Vercel o `backend/app.py` con Flask local) a menos que sea estrictamente necesario. El frontend está diseñado para funcionar con la API existente.
+- **No modificar el endpoint de telemetría** (`globosondatecnica2/frontend/api/datos.py` en Vercel o `globosondatecnica2/backend/app.py` con Flask local) a menos que sea estrictamente necesario. El frontend está diseñado para funcionar con la API existente.
 - **Mantener la documentación actualizada:** después de cada modificación, verificar que `CHANGELOG.md`, `GUIA_MANTENIMIENTO.md` y `TODO.md` reflejen el estado actual del proyecto.
 
 ---
 
 ## 14. Modificar la página Proyecto
 
-La página Proyecto (`pages/proyecto.html`) es la presentación institucional de STELLA. Todo su contenido se carga dinámicamente desde un único archivo JSON.
+La página Proyecto (`globosondatecnica2/frontend/pages/proyecto.html`) es la presentación institucional de STELLA. Todo su contenido se carga dinámicamente desde un único archivo JSON.
 
 ### Archivo a modificar
 
-`data/proyecto.json`
+`globosondatecnica2/frontend/data/proyecto.json`
 
 ### Estructura del JSON
 
@@ -728,7 +738,7 @@ La página Proyecto (`pages/proyecto.html`) es la presentación institucional de
 
 ### Pasos para modificar una sección existente
 
-1. Abrir `data/proyecto.json`.
+1. Abrir `globosondatecnica2/frontend/data/proyecto.json`.
 2. Localizar la sección por su `id` (ej: `"que-es"`, `"funcionamiento"`, `"tecnologias"`).
 3. Modificar los campos necesarios.
 4. Guardar el archivo.
@@ -736,7 +746,7 @@ La página Proyecto (`pages/proyecto.html`) es la presentación institucional de
 
 ### Pasos para agregar una nueva sección
 
-1. Agregar un nuevo objeto al array `sections` en `data/proyecto.json`.
+1. Agregar un nuevo objeto al array `sections` en `globosondatecnica2/frontend/data/proyecto.json`.
 2. Asignar un `id` único (en minúsculas, sin espacios, con guiones).
 3. Elegir el `tipo` según el contenido deseado.
 4. Completar los campos según el tipo.
@@ -744,7 +754,7 @@ La página Proyecto (`pages/proyecto.html`) es la presentación institucional de
 
 ### Pasos para modificar la infografía
 
-1. Localizar la clave `"infografia"` en `data/proyecto.json`.
+1. Localizar la clave `"infografia"` en `globosondatecnica2/frontend/data/proyecto.json`.
 2. Modificar `"titulo"` o los pasos dentro de `"pasos"`.
 3. Cada paso requiere un `"icono"` (emoji) y un `"nombre"`.
 4. Guardar el archivo.
@@ -754,7 +764,7 @@ La página Proyecto (`pages/proyecto.html`) es la presentación institucional de
 - No es necesario modificar HTML ni JavaScript para cambiar el contenido.
 - Las secciones se renderizan en el orden en que aparecen en el array `sections`.
 - En las secciones tipo `areas`, el campo `intro` (opcional) reemplaza el texto introductorio fijo. Cada área puede llevar un `icono` (emoji).
-- Los iconos emoji (`icono`) se convierten automáticamente a iconos SVG mediante `js/utils/iconos.js`. Si un emoji no está en el mapa de iconos, se muestra el emoji original.
+- Los iconos emoji (`icono`) se convierten automáticamente a iconos SVG mediante `globosondatecnica2/frontend/js/utils/iconos.js`. Si un emoji no está en el mapa de iconos, se muestra el emoji original.
 - Las animaciones de entrada (fade-in + slide-up) se aplican automáticamente a cada sección.
 - La infografía se construye con HTML+CSS; no requiere imágenes externas.
 - Si ocurre un error de carga, se muestra un mensaje de error sin romper el sitio.
@@ -769,28 +779,28 @@ La página de inicio (`index.html`) es una landing page que carga datos desde m�
 
 | Sección en la página | Archivo JSON | Archivo JS (función) | Contenido |
 |---|---|---|---|
-| Hero principal | `data/config.json` | `renderizarHero()` | Título, descripción y badge de lanzamiento (countdown) |
-| Estado del proyecto | `data/estado.json` | `renderizarEstado()` | Indicador con color, texto, barra de progreso y etapas |
-| STELLA en números | `data/estadisticas.json` | `renderizarStats()` | Tarjetas con icono, valor animado, título y descripción |
-| ¿Qué es STELLA? (resumen) | `data/proyecto.json` (campo `home_resumen`) | `renderizarResumen()` | Párrafos de texto con botón "Conocer más" |
-| Áreas del proyecto | `data/proyecto.json` (sección `como-trabajamos`) | `renderizarAreas()` | Diagrama vertical con iconos y flechas |
-| Tecnologías utilizadas | `data/proyecto.json` (sección `tecnologias`) | `renderizarTecnologias()` | Primeras 6 tarjetas + enlace a página Proyecto |
-| Últimos documentos | `data/documentos.json` | `renderizarDocumentos()` | Últimos 3 documentos con botón Ver |
-| Galería destacada | `data/galeria.json` | `renderizarGaleria()` | Primeras 4 imágenes con overlay |
-| Patrocinadores destacados | `data/patrocinadores.json` | `renderizarPatrocinadores()` | Primeros 4 logos |
-| Novedades | `data/noticias.json` | `renderizarNoticias()` | Últimas 3 novedades + enlace a la página de noticias |
-| Entrevistas | `data/entrevistas.json` | `renderizarEntrevistas()` | Primeras 4 entrevistas con portada + enlace a la página de entrevistas |
-| Contacto rápido | `data/config.json` | `renderizarContacto()` | Escuela, ubicación y email desde config.json |
+| Hero principal | `globosondatecnica2/frontend/data/config.json` | `renderizarHero()` | Título, descripción y badge de lanzamiento (countdown) |
+| Estado del proyecto | `globosondatecnica2/frontend/data/estado.json` | `renderizarEstado()` | Indicador con color, texto, barra de progreso y etapas |
+| STELLA en números | `globosondatecnica2/frontend/data/estadisticas.json` | `renderizarStats()` | Tarjetas con icono, valor animado, título y descripción |
+| ¿Qué es STELLA? (resumen) | `globosondatecnica2/frontend/data/proyecto.json` (campo `home_resumen`) | `renderizarResumen()` | Párrafos de texto con botón "Conocer más" |
+| Áreas del proyecto | `globosondatecnica2/frontend/data/proyecto.json` (sección `como-trabajamos`) | `renderizarAreas()` | Diagrama vertical con iconos y flechas |
+| Tecnologías utilizadas | `globosondatecnica2/frontend/data/proyecto.json` (sección `tecnologias`) | `renderizarTecnologias()` | Primeras 6 tarjetas + enlace a página Proyecto |
+| Últimos documentos | `globosondatecnica2/frontend/data/documentos.json` | `renderizarDocumentos()` | Últimos 3 documentos con botón Ver |
+| Galería destacada | `globosondatecnica2/frontend/data/galeria.json` | `renderizarGaleria()` | Primeras 4 imágenes con overlay |
+| Patrocinadores destacados | `globosondatecnica2/frontend/data/patrocinadores.json` | `renderizarPatrocinadores()` | Primeros 4 logos |
+| Novedades | `globosondatecnica2/frontend/data/noticias.json` | `renderizarNoticias()` | Últimas 3 novedades + enlace a la página de noticias |
+| Entrevistas | `globosondatecnica2/frontend/data/entrevistas.json` | `renderizarEntrevistas()` | Primeras 4 entrevistas con portada + enlace a la página de entrevistas |
+| Contacto rápido | `globosondatecnica2/frontend/data/config.json` | `renderizarContacto()` | Escuela, ubicación y email desde config.json |
 
 ### Modificar el hero principal
 
-1. Abrir `data/config.json`.
+1. Abrir `globosondatecnica2/frontend/data/config.json`.
 2. Modificar `hero_titulo` (título principal) y/o `hero_descripcion` (texto secundario).
 3. Guardar el archivo. La página de inicio se actualiza automáticamente.
 
 ### Modificar la sección de contacto rápido
 
-1. Abrir `data/config.json`.
+1. Abrir `globosondatecnica2/frontend/data/config.json`.
 2. Modificar `escuela`, `ciudad`, `provincia`, `pais` y/o `correo`.
 3. Guardar el archivo. La página de inicio se actualiza automáticamente.
 
@@ -798,16 +808,16 @@ La página de inicio (`index.html`) es una landing page que carga datos desde m�
 
 El formulario "Envianos un mensaje" envía los mensajes directo al correo del proyecto mediante una Web App de Google Apps Script que usa la cuenta Gmail oficial (`santatrinidad2026@gmail.com`).
 
-1. Abrir `email_contacto_web.gs` (raíz del proyecto) y seguir los pasos de instalación que documenta en su cabecera (script.google.com → Nuevo proyecto → pegar el código → Implementar como "Aplicación web" → Ejecutar como "Yo" → acceso "Cualquier persona").
+1. Abrir `globosondatecnica2/email_contacto_web.gs` (raíz del proyecto) y seguir los pasos de instalación que documenta en su cabecera (script.google.com → Nuevo proyecto → pegar el código → Implementar como "Aplicación web" → Ejecutar como "Yo" → acceso "Cualquier persona").
 2. Copiar la URL de implementación (termina en `/exec`).
-3. Pegarla en `data/config.json` → `contacto_endpoint`.
+3. Pegarla en `globosondatecnica2/frontend/data/config.json` → `contacto_endpoint`.
 4. Desplegar el sitio en Vercel.
 
 Si `contacto_endpoint` está vacío, el formulario usa `mailto` como respaldo.
 
 ### Modificar el estado del proyecto
 
-1. Abrir `data/estado.json`.
+1. Abrir `globosondatecnica2/frontend/data/estado.json`.
 2. Modificar los campos:
    - `"estado"`: texto breve del estado actual.
    - `"color"`: emoji indicador (🟢 verde, 🟡 amarillo, 🔴 rojo, etc.).
@@ -818,40 +828,40 @@ Si `contacto_endpoint` está vacío, el formulario usa `mailto` como respaldo.
 
 ### Modificar el badge de lanzamiento (hero)
 
-1. Abrir `data/config.json`.
+1. Abrir `globosondatecnica2/frontend/data/config.json`.
 2. Modificar `fecha_lanzamiento` (formato texto, ej: "Octubre de 2026"). El badge muestra los días restantes calculados al primer día de ese mes y año.
 3. Si la fecha ya pasó, el badge se oculta automáticamente.
 
 ### Modificar el resumen de STELLA
 
-1. Abrir `data/proyecto.json`.
+1. Abrir `globosondatecnica2/frontend/data/proyecto.json`.
 2. Localizar el campo `"home_resumen"` (al inicio del archivo).
 3. Es un array de strings. Cada string es un párrafo.
 4. Guardar el archivo.
 
 ### Modificar áreas o tecnologías mostradas en Inicio
 
-Estas secciones reutilizan los datos de `data/proyecto.json`. Para modificarlas, ver la [sección 14](#14-modificar-la-página-proyecto).
+Estas secciones reutilizan los datos de `globosondatecnica2/frontend/data/proyecto.json`. Para modificarlas, ver la [sección 14](#14-modificar-la-página-proyecto).
 
 ### Modificar documentos destacados
 
-1. Agregar o modificar entradas en `data/documentos.json` (ver [sección 4](#4-agregar-un-documento)).
+1. Agregar o modificar entradas en `globosondatecnica2/frontend/data/documentos.json` (ver [sección 4](#4-agregar-un-documento)).
 2. La página de inicio muestra automáticamente los últimos 3 documentos del array.
 
 ### Modificar galería destacada
 
-1. Agregar o modificar entradas en `data/galeria.json` (ver [sección 5](#5-agregar-imágenes-a-la-galería)).
+1. Agregar o modificar entradas en `globosondatecnica2/frontend/data/galeria.json` (ver [sección 5](#5-agregar-imágenes-a-la-galería)).
 2. La página de inicio muestra automáticamente las primeras 4 imágenes del array.
 
 ### Modificar patrocinadores destacados
 
-1. Agregar o modificar entradas en `data/patrocinadores.json` (ver [sección 8](#8-agregar-un-patrocinador)).
+1. Agregar o modificar entradas en `globosondatecnica2/frontend/data/patrocinadores.json` (ver [sección 8](#8-agregar-un-patrocinador)).
 2. La página de inicio muestra automáticamente los primeros 4 patrocinadores del array.
 
 ### Notas
 
 - Para cambiar el orden de las secciones en la página de inicio, modificar `index.html`.
-- Para cambiar el diseño o estilo de una sección, modificar `css/pages/inicio.css`.
+- Para cambiar el diseño o estilo de una sección, modificar `globosondatecnica2/frontend/css/pages/inicio.css`.
 - Las animaciones de entrada se aplican automáticamente mediante Intersection Observer en todas las secciones con clase `animar-entrada`.
 - No es necesario modificar JavaScript para cambiar el contenido de ninguna sección.
 
@@ -861,7 +871,7 @@ Estas secciones reutilizan los datos de `data/proyecto.json`. Para modificarlas,
 
 ### Archivo a modificar
 
-`data/noticias.json`
+`globosondatecnica2/frontend/data/noticias.json`
 
 ### Estructura del JSON (v4.0.0)
 
@@ -889,18 +899,18 @@ Estas secciones reutilizan los datos de `data/proyecto.json`. Para modificarlas,
 
 ### Pasos
 
-1. Abrir `data/noticias.json`.
+1. Abrir `globosondatecnica2/frontend/data/noticias.json`.
 2. Agregar un nuevo objeto al array con un `id` correlativo.
 3. Guardar el archivo.
-4. La página de noticias (`pages/noticias.html`) y la sección "Novedades" del inicio mostrarán la novedad automáticamente (el inicio muestra las 3 últimas).
+4. La página de noticias (`globosondatecnica2/frontend/pages/noticias.html`) y la sección "Novedades" del inicio mostrarán la novedad automáticamente (el inicio muestra las 3 últimas).
 
 ---
 
 ## 17. SEO y compartir en redes
 
-- **`og:image`:** se usa `assets/images/og-portada.png` (1200×630). Para regenerarla, editar el script de PowerShell de referencia.
+- **`og:image`:** se usa `globosondatecnica2/frontend/assets/images/og-portada.png` (1200×630). Para regenerarla, editar el script de PowerShell de referencia.
 - **`canonical` y `og:url`:** usan el dominio `https://stellaproject.com.ar`. Si el dominio real cambia, actualizar los `<link rel="canonical">` y `<meta property="og:url">` de todos los HTML.
-- **`robots.txt`:** excluye `pages/telemetria.html` (página oculta) y la carpeta `data/`.
+- **`robots.txt`:** excluye `globosondatecnica2/frontend/pages/telemetria.html` (página oculta) y la carpeta `globosondatecnica2/frontend/data/`.
 - **`sitemap.xml`:** lista las páginas indexables. Actualizarlo si se agregan páginas nuevas.
 - **Versionado de archivos:** al modificar JS/CSS, incrementar el `?v=` en las referencias de los HTML para forzar la actualización de caché (actualmente `?v=19`).
 
@@ -908,18 +918,18 @@ Estas secciones reutilizan los datos de `data/proyecto.json`. Para modificarlas,
 
 ## 18. Desplegar en Vercel
 
-El sitio se despliega en Vercel. Vercel sirve el contenido estático de `frontend/` y ejecuta la telemetría mediante una serverless function Python (`api/datos.py`), sin necesidad de Flask.
+El sitio se despliega en Vercel. Vercel sirve el contenido estático de `frontend/` y ejecuta la telemetría mediante una serverless function Python (`globosondatecnica2/frontend/api/datos.py`), sin necesidad de Flask.
 
 ### Requisitos
 
 - El directorio raíz (Root Directory) debe ser **`frontend`** (desde la raíz del repositorio).
 - El archivo `frontend/vercel.json` contiene los headers de caché del sitio.
-- La función `api/datos.py` expone el endpoint `/api/datos` (misma respuesta JSON que el backend Flask local).
+- La función `globosondatecnica2/frontend/api/datos.py` expone el endpoint `/api/datos` (misma respuesta JSON que el backend Flask local).
 
 ### Desplegar desde la consola de Vercel
 
 1. Importar el repositorio en https://vercel.com (New Project).
-2. Configurar **Root Directory → `frontend`**.
+2. Configurar **Root Directory → `globosondatecnica2/frontend`**.
 3. Framework Preset: **Other** (es un sitio estático).
 4. Deploy. La telemetría queda disponible en `https://<proyecto>.vercel.app/api/datos`.
 
@@ -933,26 +943,26 @@ npx vercel --prod
 ### Verificar
 
 - Inicio y subpáginas cargan correctamente.
-- La página de telemetría (`pages/telemetria.html`) muestra valores actualizados cada 2 segundos (usa `/api/datos`).
+- La página de telemetría (`globosondatecnica2/frontend/pages/telemetria.html`) muestra valores actualizados cada 2 segundos (usa `/api/datos`).
 - El formulario de contacto sigue usando `contacto_endpoint` de `config.json` (Google Apps Script), independiente del hosting.
 
 ### Notas
 
 - `404.html` es respetado por Vercel como página de error personalizada.
-- Los datos `data/**` y los HTML se sirven con `no-cache`.
-- Para pruebas locales con Flask, cambiar `api_url` en `data/config.json` y `API_URL` en `js/utils/constants.js` a `http://127.0.0.1:5000/datos`.
+- Los datos `globosondatecnica2/frontend/data/**` y los HTML se sirven con `no-cache`.
+- Para pruebas locales con Flask, cambiar `api_url` en `globosondatecnica2/frontend/data/config.json` y `API_URL` en `globosondatecnica2/frontend/js/utils/constants.js` a `http://127.0.0.1:5000/datos`.
 
 ---
 
 ## 19. Agregar una entrevista (Prensa)
 
-Las entrevistas se muestran en la página `pages/entrevistas.html` (con portada propia) y en un bloque de la página de inicio. Cada tarjeta es un enlace que abre la entrevista original en una pestaña nueva.
+Las entrevistas se muestran en la página `globosondatecnica2/frontend/pages/entrevistas.html` (con portada propia) y en un bloque de la página de inicio. Cada tarjeta es un enlace que abre la entrevista original en una pestaña nueva.
 
 ### Archivo a modificar
 
-`data/entrevistas.json`
+`globosondatecnica2/frontend/data/entrevistas.json`
 
-### Estructura del JSON (v4.4.0)
+### Estructura del JSON (v4.4.1)
 
 ```json
 [
@@ -960,10 +970,9 @@ Las entrevistas se muestran en la página `pages/entrevistas.html` (con portada 
         "id": 1,
         "titulo": "Título de la entrevista",
         "medio": "Instagram",
-        "fecha": "2026-02-20",
         "descripcion": "Texto breve que se muestra en la tarjeta.",
-        "portada": "assets/images/entrevistas/entrevista-1.svg",
-        "link": "https://www.instagram.com/p/XXXXXX/",
+        "portada": "assets/images/entrevistas/Entrevista - Canal uno.png",
+        "link": "https://www.instagram.com/reel/DcV-e2mhS6r/",
         "destacado": false
     }
 ]
@@ -974,26 +983,38 @@ Las entrevistas se muestran en la página `pages/entrevistas.html` (con portada 
 | Campo | Obligatorio | Descripción |
 |---|---|---|
 | `id` | Sí | Número entero único correlativo |
-| `titulo` | Sí | Título visible de la entrevista |
+| `titulo` | Sí | Título visible de la entrevista (ej: el nombre del programa o medio) |
 | `medio` | No | Etiqueta del medio (ej: Instagram, Radio, TV). Si se omite, no se muestra |
 | `fecha` | No | Fecha en formato `AAAA-MM-DD`. Si se omite, no se muestra |
 | `descripcion` | No | Texto breve que se muestra en la tarjeta |
-| `portada` | No | Ruta de la imagen de portada (relativa a `frontend/`) |
+| `portada` | No | Ruta de la imagen de portada (relativa a `globosondatecnica2/frontend/`) |
 | `link` | Sí | URL de la entrevista (se abre en pestaña nueva) |
 | `destacado` | No | `true` muestra la etiqueta "Destacada" |
 
 ### Pasos
 
-1. Abrir `data/entrevistas.json`.
+1. Abrir `globosondatecnica2/frontend/data/entrevistas.json`.
 2. Agregar un nuevo objeto al array con un `id` correlativo.
-3. Copiar el link del post de Instagram y pegarlo en `"link"`.
+3. Copiar el link del reel de Instagram y pegarlo en `"link"`.
 4. Guardar el archivo. La página de entrevistas y el bloque del inicio se actualizan automáticamente (el inicio muestra las primeras 4).
 
 ### Portadas
 
-- Las portadas de ejemplo están en `assets/images/entrevistas/` (SVG con el estilo del sitio).
-- Para usar una foto real, guardar la imagen en esa carpeta (por ejemplo `entrevista-1.jpg`) y actualizar el campo `"portada"`.
+- Las portadas están en `globosondatecnica2/frontend/assets/images/entrevistas/` (archivos `.png`).
+- Para usar una foto nueva, guardarla en esa carpeta y actualizar el campo `"portada"`.
+- El nombre del archivo puede llevar espacios; se referencia tal cual en el JSON.
 - Si el campo `"portada"` se omite o el archivo no existe, la tarjeta se muestra con un fondo degradado sin imagen.
+
+### Entrevistas cargadas actualmente
+
+| id | Título | Link |
+|---|---|---|
+| 1 | Vamos con vos | `instagram.com/reel/Da3RVYTRWZg/` |
+| 2 | En acción Olavarría | `instagram.com/reel/DdJqF6vxeXV/` |
+| 3 | Central de noticias Olavarría | `instagram.com/reel/DcHg4mloV1G/` |
+| 4 | Canal Uno | `instagram.com/reel/DcV-e2mhS6r/` |
+
+> Las 4 no tienen campo `fecha` porque Instagram no expone la fecha de publicación sin iniciar sesión. Si se consiguen las fechas, agregar `"fecha": "AAAA-MM-DD"` a cada una y se muestran automáticamente en la tarjeta.
 
 ### Notas
 

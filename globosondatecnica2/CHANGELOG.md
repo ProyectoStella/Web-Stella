@@ -6,6 +6,23 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 
 ---
 
+## [v4.4.1] — Restaurar carpeta `globosondatecnica2/` y datos reales de entrevistas
+
+### Cambios importantes
+- **El proyecto vuelve a vivir dentro de la carpeta `globosondatecnica2/`** en el repositorio. Se revierte el aplanado de la v4.3.0 para que el **Root Directory de Vercel (`globosondatecnica2/frontend`)** siga siendo válido y no haya que tocar la configuración del proyecto en el panel.
+  - Estructura actual: `globosondatecnica2/frontend/`, `globosondatecnica2/backend/`, `globosondatecnica2/README.md`, `globosondatecnica2/CHANGELOG.md`, `globosondatecnica2/GUIA_MANTENIMIENTO.md`, `globosondatecnica2/TODO.md`, `globosondatecnica2/email_contacto_web.gs`.
+- **Entrevistas con contenido real**: se cargan los 4 reels de Instagram (Vamos con vos, En acción Olavarría, Central de noticias Olavarría y Canal Uno) con sus portadas reales.
+  - Las portadas de ejemplo (SVG) se eliminan y se reemplazan por las imágenes entregadas en `globosondatecnica2/frontend/assets/images/entrevistas/`.
+  - Los enlaces apuntan a cada reel específico en lugar del perfil general.
+  - Sin campo `fecha`: Instagram no expone la fecha de publicación de un reel sin iniciar sesión. Si se consiguen las fechas, se agrega `"fecha": "AAAA-MM-DD"` y la tarjeta las muestra automáticamente.
+
+### Archivos modificados
+- `globosondatecnica2/frontend/data/entrevistas.json` — links y portadas reales.
+- `globosondatecnica2/README.md` y `globosondatecnica2/GUIA_MANTENIMIENTO.md` — se actualizan los paths y la estructura del proyecto.
+- `globosondatecnica2/frontend/data/config.json` — `version_actual` actualizada a v4.4.1.
+
+---
+
 ## [v4.4.0] — Página de Entrevistas (Prensa)
 
 ### Nuevas funcionalidades
