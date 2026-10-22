@@ -2,7 +2,6 @@
 .entrevistas-portada {
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(79, 195, 247, 0.18);
 }
 
 .entrevistas-portada-contenido {
