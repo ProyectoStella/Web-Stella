@@ -6,6 +6,31 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 
 ---
 
+## [v4.3.0] — Limpieza de Firebase y documentación
+
+### Cambios importantes
+- El sitio se publica **exclusivamente en Vercel**. Se eliminó toda la configuración de Firebase Hosting.
+- Las rutas inexistentes muestran la página `404.html` personalizada (en Firebase se rewritteaban a `index.html`).
+
+### Archivos eliminados
+- `frontend/firebase.json` — configuración de hosting con rewrites.
+- `frontend/.firebaserc` — vínculo con el proyecto Firebase `proyectostella-4802b`.
+- `frontend/.agents/skills/firebase-*` y `frontend/.claude/skills/firebase-*` — 10 skills de Firebase no aplicables al proyecto.
+
+### Archivos modificados
+- `frontend/skills-lock.json` — solo se conserva la skill `xcode-project-setup`.
+- `frontend/.gitignore` — se quitan las entradas de cache y debug de Firebase (se mantiene `.vercel/`).
+- `GUIA_MANTENIMIENTO.md` — se actualizan las referencias a Firebase: el despliegue paso a ser solo Vercel y la URL de la API usa la ruta relativa `/api/datos`.
+- `frontend/data/config.json` — `version_actual` actualizada a v4.3.0.
+
+### Documentación
+- Nuevo `README.md` con instrucciones para levantar el sitio localmente y publicarlo en Vercel.
+
+### Requisitos de despliegue
+- En el panel de Vercel, el **Root Directory** del proyecto debe ser `globosondatecnica2/frontend`.
+
+---
+
 ## [v4.2.0] — Compatibilidad con Vercel
 
 ### Nuevas funcionalidades

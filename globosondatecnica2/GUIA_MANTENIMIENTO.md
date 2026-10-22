@@ -799,7 +799,7 @@ El formulario "Envianos un mensaje" envía los mensajes directo al correo del pr
 1. Abrir `email_contacto_web.gs` (raíz del proyecto) y seguir los pasos de instalación que documenta en su cabecera (script.google.com → Nuevo proyecto → pegar el código → Implementar como "Aplicación web" → Ejecutar como "Yo" → acceso "Cualquier persona").
 2. Copiar la URL de implementación (termina en `/exec`).
 3. Pegarla en `data/config.json` → `contacto_endpoint`.
-4. Desplegar el sitio en Firebase.
+4. Desplegar el sitio en Vercel.
 
 Si `contacto_endpoint` está vacío, el formulario usa `mailto` como respaldo.
 
@@ -906,25 +906,25 @@ Estas secciones reutilizan los datos de `data/proyecto.json`. Para modificarlas,
 
 ## 18. Desplegar en Vercel
 
-El sitio se puede desplegar en Vercel además de Firebase. Vercel sirve el contenido estático de `frontend/` y ejecuta la telemetría mediante una serverless function Python (`api/datos.py`), sin necesidad de Flask.
+El sitio se despliega en Vercel. Vercel sirve el contenido estático de `frontend/` y ejecuta la telemetría mediante una serverless function Python (`api/datos.py`), sin necesidad de Flask.
 
 ### Requisitos
 
-- El directorio raíz (Root Directory) debe ser **`frontend`**.
-- El archivo `frontend/vercel.json` contiene los headers de caché equivalentes a los de `firebase.json`.
+- El directorio raíz (Root Directory) debe ser **`globosondatecnica2/frontend`** (desde la raíz del repositorio).
+- El archivo `frontend/vercel.json` contiene los headers de caché del sitio.
 - La función `api/datos.py` expone el endpoint `/api/datos` (misma respuesta JSON que el backend Flask local).
 
 ### Desplegar desde la consola de Vercel
 
 1. Importar el repositorio en https://vercel.com (New Project).
-2. Configurar **Root Directory → `frontend`**.
+2. Configurar **Root Directory → `globosondatecnica2/frontend`**.
 3. Framework Preset: **Other** (es un sitio estático).
 4. Deploy. La telemetría queda disponible en `https://<proyecto>.vercel.app/api/datos`.
 
 ### Desplegar con la CLI de Vercel
 
 ```bash
-cd frontend
+cd globosondatecnica2/frontend
 npx vercel --prod
 ```
 
@@ -937,5 +937,5 @@ npx vercel --prod
 ### Notas
 
 - `404.html` es respetado por Vercel como página de error personalizada.
-- Los datos `data/**` y los HTML se sirven con `no-cache` (igual que en Firebase).
+- Los datos `data/**` y los HTML se sirven con `no-cache`.
 - Para pruebas locales con Flask, cambiar `api_url` en `data/config.json` y `API_URL` en `js/utils/constants.js` a `http://127.0.0.1:5000/datos`.
