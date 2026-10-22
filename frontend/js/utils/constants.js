@@ -8,6 +8,7 @@ App.constants = {
         { file: 'documentacion.html', label: 'Documentación' },
         { file: 'galeria.html', label: 'Galería' },
         { file: 'noticias.html', label: 'Noticias' },
+        { file: 'entrevistas.html', label: 'Entrevistas' },
         { file: 'equipo.html', label: 'Equipo' },
         { file: 'patrocinadores.html', label: 'Patrocinadores' },
         { file: 'contacto.html', label: 'Contacto' }

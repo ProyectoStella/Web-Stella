@@ -12,6 +12,7 @@ App.inicio = (function() {
             galeria: fetch(App.utils.dataUrl('data/galeria.json')).then(function(r) { return r.json(); }),
             patrocinadores: fetch(App.utils.dataUrl('data/patrocinadores.json')).then(function(r) { return r.json(); }),
             noticias: fetch(App.utils.dataUrl('data/noticias.json')).then(function(r) { return r.json(); }),
+            entrevistas: fetch(App.utils.dataUrl('data/entrevistas.json')).then(function(r) { return r.json(); }),
             config: App.cargarConfig()
         };
 
@@ -42,6 +43,7 @@ App.inicio = (function() {
         renderizarGaleria(datos.galeria);
         renderizarPatrocinadores(datos.patrocinadores);
         renderizarNoticias(datos.noticias);
+        renderizarEntrevistas(datos.entrevistas);
         renderizarContacto(datos.config);
     }
 
@@ -306,6 +308,31 @@ App.inicio = (function() {
         }).join('') +
         '<div class="home-noticias-ver-todas animar-entrada">' +
         '<a href="' + App.utils.dataUrl('pages/noticias.html') + '" class="home-btn">Ver todas las novedades</a></div>';
+    }
+
+    function renderizarEntrevistas(entrevistas) {
+        var c = document.getElementById('home-entrevistas');
+        if (!c) return;
+        if (!entrevistas || !entrevistas.length) {
+            c.style.display = 'none';
+            return;
+        }
+
+        c.innerHTML = entrevistas.slice(0, 4).map(function(e) {
+            var img = e.portada
+                ? '<img src="' + App.utils.dataUrl(e.portada) + '" alt="' + e.titulo + '" loading="lazy">'
+                : '<div class="home-entrevista-sin-imagen"></div>';
+            return '<a class="home-entrevista-card animar-entrada" href="' + e.link + '" target="_blank" rel="noopener">' +
+                '<div class="home-entrevista-img">' + img + '</div>' +
+                '<div class="home-entrevista-body">' +
+                    '<span class="home-entrevista-medio">' + (e.medio || 'Instagram') + '</span>' +
+                    '<h4>' + e.titulo + '</h4>' +
+                    '<span class="home-entrevista-cta">Ver en Instagram</span>' +
+                '</div>' +
+            '</a>';
+        }).join('') +
+        '<div class="home-entrevistas-ver-todas animar-entrada">' +
+            '<a href="' + App.utils.dataUrl('pages/entrevistas.html') + '" class="home-btn">Ver todas las entrevistas</a></div>';
     }
 
     function observarAnimaciones() {

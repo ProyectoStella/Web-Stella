@@ -6,6 +6,34 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/), y el
 
 ---
 
+## [v4.4.0] — Página de Entrevistas (Prensa)
+
+### Nuevas funcionalidades
+- **Página de Entrevistas** (`pages/entrevistas.html`) — nueva sección del sitio con portada propia (fondo de la Tierra, título, contador de entrevistas y enlace al Instagram del proyecto) y una grilla de tarjetas. Cada tarjeta muestra la portada, el medio, la fecha, el título y un resumen, y **al hacer clic abre la entrevista original en una pestaña nueva**.
+- **Bloque "Entrevistas" en la página de inicio** — muestra las primeras 4 entrevistas con miniatura y enlace directo, siguiendo el mismo patrón que los bloques de galería, novedades y patrocinadores.
+- Las entrevistas se administran desde `frontend/data/entrevistas.json`: para agregar o quitar una alcanza con editar ese archivo, sin tocar código.
+- Portadas de ejemplo en `frontend/assets/images/entrevistas/` (SVG con el estilo del sitio), reemplazables por fotos reales.
+
+### Archivos nuevos
+- `frontend/data/entrevistas.json` — datos de las 4 entrevistas (título, medio, fecha, descripción, portada, link y destacado).
+- `frontend/pages/entrevistas.html` — página con portada y grilla de entrevistas.
+- `frontend/js/pages/entrevistas.js` — carga y renderiza las entrevistas.
+- `frontend/css/pages/entrevistas.css` — estilos de la portada y las tarjetas.
+- `frontend/assets/images/entrevistas/entrevista-1.svg` a `entrevista-4.svg` — portadas de ejemplo.
+
+### Archivos modificados
+- `frontend/js/utils/constants.js` — se agrega "Entrevistas" al menú de navegación.
+- `frontend/js/components/breadcrumb.js` — se registra el título de la página en la miga de pan.
+- `frontend/index.html` — nuevo bloque `home-entrevistas-section`.
+- `frontend/js/pages/inicio.js` — `renderizarEntrevistas()` carga y muestra el bloque del inicio.
+- `frontend/css/pages/inicio.css` — estilos del bloque de entrevistas del inicio.
+- `frontend/sitemap.xml` — se agrega la URL de la página de entrevistas.
+- Todos los HTML — se incrementa el versionado de assets de `?v=18` a `?v=19`.
+- `frontend/data/config.json` — `version_actual` actualizada a v4.4.0.
+- `GUIA_MANTENIMIENTO.md` — nueva sección 19 con las instrucciones para agregar entrevistas.
+
+---
+
 ## [v4.3.0] — Limpieza de Firebase y documentación
 
 ### Cambios importantes

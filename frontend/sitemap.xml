@@ -21,6 +21,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://stellaproject.com.ar/pages/entrevistas.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://stellaproject.com.ar/pages/equipo.html</loc>
     <priority>0.7</priority>
   </url>

@@ -9,6 +9,7 @@
         'equipo.html': 'Equipo',
         'galeria.html': 'Galería',
         'noticias.html': 'Noticias',
+        'entrevistas.html': 'Entrevistas',
         'patrocinadores.html': 'Patrocinadores',
         'contacto.html': 'Contacto'
     };

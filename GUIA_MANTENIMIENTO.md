@@ -24,6 +24,7 @@ Manual para administrar y actualizar el sitio web del proyecto STELLA sin necesi
 16. [Modificar las novedades (Noticias)](#16-modificar-las-novedades-noticias)
 17. [SEO y compartir en redes](#17-seo-y-compartir-en-redes)
 18. [Desplegar en Vercel](#18-desplegar-en-vercel)
+19. [Agregar una entrevista (Prensa)](#19-agregar-una-entrevista-prensa)
 
 ---
 
@@ -778,6 +779,7 @@ La página de inicio (`index.html`) es una landing page que carga datos desde m�
 | Galería destacada | `data/galeria.json` | `renderizarGaleria()` | Primeras 4 imágenes con overlay |
 | Patrocinadores destacados | `data/patrocinadores.json` | `renderizarPatrocinadores()` | Primeros 4 logos |
 | Novedades | `data/noticias.json` | `renderizarNoticias()` | Últimas 3 novedades + enlace a la página de noticias |
+| Entrevistas | `data/entrevistas.json` | `renderizarEntrevistas()` | Primeras 4 entrevistas con portada + enlace a la página de entrevistas |
 | Contacto rápido | `data/config.json` | `renderizarContacto()` | Escuela, ubicación y email desde config.json |
 
 ### Modificar el hero principal
@@ -900,7 +902,7 @@ Estas secciones reutilizan los datos de `data/proyecto.json`. Para modificarlas,
 - **`canonical` y `og:url`:** usan el dominio `https://stellaproject.com.ar`. Si el dominio real cambia, actualizar los `<link rel="canonical">` y `<meta property="og:url">` de todos los HTML.
 - **`robots.txt`:** excluye `pages/telemetria.html` (página oculta) y la carpeta `data/`.
 - **`sitemap.xml`:** lista las páginas indexables. Actualizarlo si se agregan páginas nuevas.
-- **Versionado de archivos:** al modificar JS/CSS, incrementar el `?v=` en las referencias de los HTML para forzar la actualización de caché (actualmente `?v=18`).
+- **Versionado de archivos:** al modificar JS/CSS, incrementar el `?v=` en las referencias de los HTML para forzar la actualización de caché (actualmente `?v=19`).
 
 ---
 
@@ -939,3 +941,63 @@ npx vercel --prod
 - `404.html` es respetado por Vercel como página de error personalizada.
 - Los datos `data/**` y los HTML se sirven con `no-cache`.
 - Para pruebas locales con Flask, cambiar `api_url` en `data/config.json` y `API_URL` en `js/utils/constants.js` a `http://127.0.0.1:5000/datos`.
+
+---
+
+## 19. Agregar una entrevista (Prensa)
+
+Las entrevistas se muestran en la página `pages/entrevistas.html` (con portada propia) y en un bloque de la página de inicio. Cada tarjeta es un enlace que abre la entrevista original en una pestaña nueva.
+
+### Archivo a modificar
+
+`data/entrevistas.json`
+
+### Estructura del JSON (v4.4.0)
+
+```json
+[
+    {
+        "id": 1,
+        "titulo": "Título de la entrevista",
+        "medio": "Instagram",
+        "fecha": "2026-02-20",
+        "descripcion": "Texto breve que se muestra en la tarjeta.",
+        "portada": "assets/images/entrevistas/entrevista-1.svg",
+        "link": "https://www.instagram.com/p/XXXXXX/",
+        "destacado": false
+    }
+]
+```
+
+### Campos
+
+| Campo | Obligatorio | Descripción |
+|---|---|---|
+| `id` | Sí | Número entero único correlativo |
+| `titulo` | Sí | Título visible de la entrevista |
+| `medio` | No | Etiqueta del medio (ej: Instagram, Radio, TV). Si se omite, no se muestra |
+| `fecha` | No | Fecha en formato `AAAA-MM-DD`. Si se omite, no se muestra |
+| `descripcion` | No | Texto breve que se muestra en la tarjeta |
+| `portada` | No | Ruta de la imagen de portada (relativa a `frontend/`) |
+| `link` | Sí | URL de la entrevista (se abre en pestaña nueva) |
+| `destacado` | No | `true` muestra la etiqueta "Destacada" |
+
+### Pasos
+
+1. Abrir `data/entrevistas.json`.
+2. Agregar un nuevo objeto al array con un `id` correlativo.
+3. Copiar el link del post de Instagram y pegarlo en `"link"`.
+4. Guardar el archivo. La página de entrevistas y el bloque del inicio se actualizan automáticamente (el inicio muestra las primeras 4).
+
+### Portadas
+
+- Las portadas de ejemplo están en `assets/images/entrevistas/` (SVG con el estilo del sitio).
+- Para usar una foto real, guardar la imagen en esa carpeta (por ejemplo `entrevista-1.jpg`) y actualizar el campo `"portada"`.
+- Si el campo `"portada"` se omite o el archivo no existe, la tarjeta se muestra con un fondo degradado sin imagen.
+
+### Notas
+
+- Los enlaces se abren con `target="_blank"` y `rel="noopener"`.
+- La portada de la página (con el fondo de la Tierra y el enlace a Instagram) es fija; el contador de entrevistas se calcula automáticamente al cargar los datos.
+- No es necesario tocar HTML ni JavaScript para agregar o quitar entrevistas.
+
